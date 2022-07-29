@@ -1,14 +1,16 @@
 import React from "react";
 import "./styles.css";
-import AppLabel, { TYPES } from "../../atoms/AppLabel/AppLabel";
-import Image from "../../atoms/Image/Image";
+import AppLabel from "../../atoms/AppLabel/AppLabel";
+import Image, { TYPES } from "../../atoms/Image/Image";
+import { SPOTIFYWHITE } from "../../../styles/colors";
 
-export default function ArtistItem({ src = "No image src here! - HBM", text = "No text here! - HBM", imgType = "No imgType here! - HBM", labelType = "No labelType here! - HBM", style = {} }) {
+export default function ArtistItem({ itemType = "No artist item type here! - AIM", src = "No image src here! - AIM", children = "No text here! - AIM", style = {} }) {
   return (
-    <div className="artistItem">
-      <Image imageName={src} type={imgType} />
-      <AppLabel style={style} type={labelType}>
-        {text}
+    <div className={itemType === "col" ? "artistItem col" : "artistItem row"}>
+      {console.log("itemType is", itemType)}
+      <Image imageName={src} type={itemType === "col" ? TYPES.MEDLARGE : TYPES.SMALL} isRounded />
+      <AppLabel style={{ color: SPOTIFYWHITE, fontSize: itemType === "col" ? "16px" : "14px" }} type={"TYPES.SUB_SUB_TITLE"} isBold>
+        {children}
       </AppLabel>
     </div>
   );
