@@ -4,6 +4,7 @@ import "./App.css";
 import { TYPES } from "./components/atoms/AppLabel/AppLabel";
 import ProfileStatusBar from "./components/molecules/ProfileStatusBar/ProfileStatusBar";
 import ArtistItem from "./components/molecules/ArtistItem/ArtistItem";
+import FilterTab from "./components/molecules/FilterTab/FilterTab";
 function App() {
   return (
     <div className="App">
@@ -21,9 +22,11 @@ function App() {
       {/* <ToolbarTab text="Profile"/> */}
       {/* <ProfileStatusItem numberTop="0" textBottom="Followers" /> */}
       {/* <ProfileStatusBar numbers={[0, 12, 13]} labels={["Followers", "Following", "Playlists"]} /> */}
-      <ArtistItem src="jimiHendrix.jpg" itemType="col">
+      {/* <ArtistItem src="jimiHendrix.jpg" itemType="col">
         Jimi Hendrix
-      </ArtistItem>
+      </ArtistItem> */}
+      {/* <ProfileStatusBar numbers={[0, 12, 13]} labels={["Followers", "Following", "Playlists"]} />*/}
+      {/* <FilterTab selected text="Last 6 Months" /> */}
     </div>
   );
 }
