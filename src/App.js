@@ -5,6 +5,7 @@ import { TYPES } from "./components/atoms/AppLabel/AppLabel";
 import ProfileStatusBar from "./components/molecules/ProfileStatusBar/ProfileStatusBar";
 import ArtistItem from "./components/molecules/ArtistItem/ArtistItem";
 import FilterTab from "./components/molecules/FilterTab/FilterTab";
+import TrackItem from "./components/molecules/TrackItem/TrackItem";
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
       </ArtistItem> */}
       {/* <ProfileStatusBar numbers={[0, 12, 13]} labels={["Followers", "Following", "Playlists"]} />*/}
       {/* <FilterTab selected text="Last 6 Months" /> */}
+      {/* <TrackItem src="logicBomb-Unlimited.png" trackName="High Density" artistName="Logic Bomb" albumName="Unlimited" songLength="8:01" /> */}
     </div>
   );
 }

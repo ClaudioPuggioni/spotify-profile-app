@@ -1,0 +1,24 @@
+.trackItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0px 15px;
+}
+
+.trackItemLeft {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.trackMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 4px;
+}
+
+.trackItemRight {
+  padding-bottom: 4px;
+}
