@@ -8,11 +8,7 @@ export const TYPES = {
   PAR: 4,
 };
 
-export default function AppLabel({
-  children = "No Text here!",
-  type = TYPES.TITLE,
-  isBold = false,
-}) {
+export default function AppLabel({ children = "No Text here!", type = TYPES.TITLE, isBold = false }) {
   let result = {};
   switch (type) {
     case TYPES.TITLE:
