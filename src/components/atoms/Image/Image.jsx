@@ -1,4 +1,5 @@
 import React from "react";
+import { SCALE_LARGE, SCALE_MED, SCALE_SMALL } from "../../../styles/sizes";
 import "./styles.css";
 
 const TYPES = {
@@ -15,13 +16,13 @@ export default function Image({
   let SIZE = {};
   switch (type) {
     case TYPES.SMALL:
-      SIZE = { width: "70px", height: "70px" };
+      SIZE = { width: SCALE_SMALL, height: SCALE_SMALL };
       break;
     case TYPES.MED:
-      SIZE = { width: "150px", height: "150px" };
+      SIZE = { width: SCALE_MED, height: SCALE_MED };
       break;
     default:
-      SIZE = { width: "250px", height: "250px" };
+      SIZE = { width: SCALE_LARGE, height: SCALE_LARGE };
       break;
   }
   return (
