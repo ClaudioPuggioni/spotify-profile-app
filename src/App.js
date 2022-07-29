@@ -1,8 +1,10 @@
+import React from 'react';
 import './App.css'
+import Image from './components/atoms/Image/Image';
 function App() {
   return (
     <div className='App'>
-      
+      <Image />
     </div>
   );
 }
