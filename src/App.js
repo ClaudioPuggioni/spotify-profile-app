@@ -1,9 +1,8 @@
 import "./App.css";
 import React from "react";
 import "./App.css";
-import Image, {TYPES} from "./components/atoms/Image/Image";
-import HeaderButtonGroup from "./components/molecules/HeaderButtonGroup/HeaderButtonGroup";
-import ToolbarTab from "./components/molecules/ToolbarTab/ToolbarTab";
+import { TYPES } from "./components/atoms/AppLabel/AppLabel";
+import ProfileStatusBar from "./components/molecules/ProfileStatusBar/ProfileStatusBar";
 function App() {
   return (
     <div className="App">
@@ -11,13 +10,16 @@ function App() {
       {/* <RoundedButton>Log in to spotify</RoundedButton> */}
       {/* <RoundedButton isInline>Logout</RoundedButton> */}
       {/* <RoundedButton isInline>See more</RoundedButton> */}
+      {/* <Image /> */}
       {/* <HeaderButtonGroup
         buttonText="See More"
         headerText="Hello"
         type={TYPES.SUB_TITLE} 
         isButtonInline
       /> */}
-      <ToolbarTab text="Profile"/>
+      {/* <ToolbarTab text="Profile"/> */}
+      {/* <ProfileStatusItem numberTop="0" textBottom="Followers" /> */}
+      <ProfileStatusBar numbers={[0, 12, 13]} labels={["Followers", "Following", "Playlists"]} />
     </div>
   );
 }
