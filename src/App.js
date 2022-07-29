@@ -5,8 +5,6 @@ import React from "react";
 import "./App.css";
 import Image from "./components/atoms/Image/Image";
 function App() {
-  function api() {}
-
   return (
     <div className="App">
       {/* <AppLabel type={TYPES.PAR} isBold>Hello Claudio</AppLabel> */}
