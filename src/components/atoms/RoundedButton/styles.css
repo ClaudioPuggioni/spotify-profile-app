@@ -1,0 +1,21 @@
+.inlineBtn {
+  padding: 10.8px 21px;
+
+  border-radius: 19%/50%;
+  border: 1px solid;
+
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.7px;
+}
+.coloredBtn {
+  padding: 17px 24px;
+
+  border-radius: 13%/48%;
+  border: none;
+
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
