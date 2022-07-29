@@ -11,6 +11,7 @@ const TYPES = {
 export default function Image({
   imageName = "default.jpg",
   isRounded = true,
+  isBordered = false,
   type = TYPES.SMALL,
 }) {
   let SIZE = {};
@@ -27,7 +28,7 @@ export default function Image({
   }
   return (
     <img
-      className={isRounded ? "rounded" : ""}
+      className={(isRounded ? "rounded" : "") + (isBordered ? "bordered" : "")}
       src={require("../../../assets/" + imageName)}
       alt={imageName}
       style={{ ...SIZE }}
