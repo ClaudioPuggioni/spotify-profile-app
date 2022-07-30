@@ -7,7 +7,9 @@ import ArtistItem from "./components/molecules/ArtistItem/ArtistItem";
 import FilterTab from "./components/molecules/FilterTab/FilterTab";
 import TrackItem from "./components/molecules/TrackItem/TrackItem";
 import ToolbarTab from "./components/molecules/ToolbarTab/ToolbarTab";
-import Toolbar from "./components/organisms/ToolBar/Toolbar";
+import MainToolbar from "./components/organisms/MainToolBar/MainToolbar";
+import HeaderButtonGroup from "./components/molecules/HeaderButtonGroup/HeaderButtonGroup";
+import { SPOTIFYWHITE } from "./styles/colors";
 
 const toolbarData = [
   { fileNameExt: "profileIcon.svg", name: "profile" },
@@ -31,6 +33,7 @@ function App() {
         type={TYPES.SUB_TITLE} 
         isButtonInline
       /> */}
+      {/* <HeaderButtonGroup buttonText="Log in to spotify" headerText="Spotify Profile" type={TYPES.SUB_SUB_TITLE} orient="col" labelStyle={{ color: SPOTIFYWHITE, fontSize: "14px" }} buttonStyle={{ fontSize: "7px", padding: "8px 14px", borderRadius: "12%/47%", letterSpacing: "1.2px" }} /> */}
       {/* <ToolbarTab text="Profile" imageName="user.png" /> */}
       {/* <ProfileStatusItem numberTop="0" textBottom="Followers" /> */}
       {/* <ProfileStatusBar numbers={[0, 12, 13]} labels={["Followers", "Following", "Playlists"]} /> */}
@@ -40,7 +43,7 @@ function App() {
       {/* <ProfileStatusBar numbers={[0, 12, 13]} labels={["Followers", "Following", "Playlists"]} />*/}
       {/* <FilterTab selected text="Last 6 Months" /> */}
       {/* <TrackItem src="logicBomb-Unlimited.png" trackName="Neighbour Of The Beast" artistName="Logic Bomb" albumName="Unlimited" songLength="7:13" /> */}
-      <Toolbar tabsArr={toolbarData} selected="top tracks" />
+      {/* <MainToolbar tabsArr={toolbarData} selected="top tracks" /> */}
     </div>
   );
 }

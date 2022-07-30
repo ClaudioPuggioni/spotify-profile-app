@@ -9,14 +9,21 @@ export default function HeaderButtonGroup({
   isButtonInline = false,
   isBold = true,
   type = TYPES.SUB_TITLE,
+  orient = "row",
+  labelStyle = {},
+  buttonStyle = {},
   onClick = () => {
     console.error("No action sent! - HBM");
   },
 }) {
   return (
-    <div className="header-button-cont">
-        <AppLabel style={{flex: 1}} type={type} isBold={isBold}>{headerText}</AppLabel>
-      <RoundedButton isInline={isButtonInline} onClick={onClick}>{buttonText}</RoundedButton>
+    <div className={orient === "row" ? "header-button-cont row" : "header-button-cont col"}>
+      <AppLabel style={{ ...labelStyle, flex: 1 }} type={type} isBold={isBold}>
+        {headerText}
+      </AppLabel>
+      <RoundedButton isInline={isButtonInline} onClick={onClick} style={buttonStyle}>
+        {buttonText}
+      </RoundedButton>
     </div>
   );
 }
