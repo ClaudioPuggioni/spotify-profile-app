@@ -7,7 +7,7 @@ import ArtistItem from "./components/molecules/ArtistItem/ArtistItem";
 import FilterTab from "./components/molecules/FilterTab/FilterTab";
 import TrackItem from "./components/molecules/TrackItem/TrackItem";
 import ToolbarTab from "./components/molecules/ToolbarTab/ToolbarTab";
-import Toolbar from "./components/molecules/ToolBar/Toolbar";
+import Toolbar from "./components/organisms/ToolBar/Toolbar";
 
 const toolbarData = [
   { fileNameExt: "profileIcon.svg", name: "profile" },
@@ -40,7 +40,7 @@ function App() {
       {/* <ProfileStatusBar numbers={[0, 12, 13]} labels={["Followers", "Following", "Playlists"]} />*/}
       {/* <FilterTab selected text="Last 6 Months" /> */}
       {/* <TrackItem src="logicBomb-Unlimited.png" trackName="Neighbour Of The Beast" artistName="Logic Bomb" albumName="Unlimited" songLength="7:13" /> */}
-      <Toolbar tabsArr={toolbarData} selected="playlists" />
+      <Toolbar tabsArr={toolbarData} selected="top tracks" />
     </div>
   );
 }

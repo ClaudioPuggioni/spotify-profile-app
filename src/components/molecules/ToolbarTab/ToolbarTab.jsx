@@ -9,7 +9,7 @@ export default function ToolbarTab({ selected = false, imageName = "", text = "N
   return (
     <div style={selected ? { backgroundColor: PRIMARY, borderColor: SECONDARY } : { backgroundColor: SPOTIFYBLACK }} className={`toolbar-tab-cont ${selectedStr}`}>
       <Image imageName={imageName} type={IMAGE_TYPES.TINY} />
-      <AppLabel style={selected ? { color: SPOTIFYWHITE, fontSize: "7px" } : { color: GREY, fontSize: "7px" }} isBold type={TYPES.PAR}>
+      <AppLabel style={selected ? { color: SPOTIFYWHITE, fontSize: "5.5px" } : { color: GREY, fontSize: "5.5px" }} isBold type={TYPES.PAR}>
         {text}
       </AppLabel>
     </div>
