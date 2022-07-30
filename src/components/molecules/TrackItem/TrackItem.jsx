@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 import AppLabel from "../../atoms/AppLabel/AppLabel";
-import Image, { TYPES } from "../../atoms/Image/Image";
+import Image, { TYPES as IMAGE_TYPES } from "../../atoms/Image/Image";
 import { GREY, SPOTIFYWHITE } from "../../../styles/colors";
 
 // Note: left at 100% width to fit list containers.
@@ -10,7 +10,7 @@ export default function TrackItem({ src = "No image src here! - TIM", trackName 
   return (
     <div className="trackItem">
       <div className="trackItemLeft">
-        <Image imageName={src} type={TYPES.ALMOSTEXTRA_SMALL} />
+        <Image imageName={src} type={IMAGE_TYPES.ALMOSTEXTRA_SMALL} />
         <div className="trackMeta">
           <AppLabel style={{ color: SPOTIFYWHITE, fontSize: "15.5px", fontWeight: "500" }} type={"TYPES.SUB_SUB_TITLE"}>
             {trackName}

@@ -1,5 +1,5 @@
 import React from "react";
-import { SCALE_MEDLARGE, SCALE_LARGE, SCALE_MED, SCALE_SMALL, SCALE_ALMOSTEXTRA_SMALL, SCALE_EXTRA_SMALL } from "../../../styles/sizes";
+import { SCALE_TINY, SCALE_MEDLARGE, SCALE_LARGE, SCALE_MED, SCALE_SMALL, SCALE_ALMOSTEXTRA_SMALL, SCALE_EXTRA_SMALL } from "../../../styles/sizes";
 import "./styles.css";
 
 export const TYPES = {
@@ -9,6 +9,7 @@ export const TYPES = {
   SMALL: 3,
   EXTRA_SMALL: 4,
   ALMOSTEXTRA_SMALL: 6,
+  TINY: 7,
 };
 
 export default function Image({ imageName = "default.jpg", isRounded = false, isBordered = false, type = TYPES.SMALL, style = {} }) {
@@ -16,6 +17,10 @@ export default function Image({ imageName = "default.jpg", isRounded = false, is
   let scale = 0;
   let padding = 0;
   switch (type) {
+    case TYPES.TINY:
+      scale = SCALE_TINY;
+      padding = 3;
+      break;
     case TYPES.EXTRA_SMALL:
       scale = SCALE_EXTRA_SMALL;
       padding = 5;

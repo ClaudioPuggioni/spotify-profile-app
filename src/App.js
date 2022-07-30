@@ -6,6 +6,17 @@ import ProfileStatusBar from "./components/molecules/ProfileStatusBar/ProfileSta
 import ArtistItem from "./components/molecules/ArtistItem/ArtistItem";
 import FilterTab from "./components/molecules/FilterTab/FilterTab";
 import TrackItem from "./components/molecules/TrackItem/TrackItem";
+import ToolbarTab from "./components/molecules/ToolbarTab/ToolbarTab";
+import Toolbar from "./components/molecules/ToolBar/Toolbar";
+
+const toolbarData = [
+  { fileNameExt: "profileIcon.svg", name: "profile" },
+  { fileNameExt: "topArtistsIcon.svg", name: "top artists" },
+  { fileNameExt: "topTracksIcon.svg", name: "top tracks" },
+  { fileNameExt: "recentIcon.svg", name: "recent" },
+  { fileNameExt: "playlistsIcon.svg", name: "playlists" },
+];
+
 function App() {
   return (
     <div className="App">
@@ -20,7 +31,7 @@ function App() {
         type={TYPES.SUB_TITLE} 
         isButtonInline
       /> */}
-      {/* <ToolbarTab text="Profile"/> */}
+      {/* <ToolbarTab text="Profile" imageName="user.png" /> */}
       {/* <ProfileStatusItem numberTop="0" textBottom="Followers" /> */}
       {/* <ProfileStatusBar numbers={[0, 12, 13]} labels={["Followers", "Following", "Playlists"]} /> */}
       {/* <ArtistItem src="jimiHendrix.jpg" itemType="col">
@@ -28,7 +39,8 @@ function App() {
       </ArtistItem> */}
       {/* <ProfileStatusBar numbers={[0, 12, 13]} labels={["Followers", "Following", "Playlists"]} />*/}
       {/* <FilterTab selected text="Last 6 Months" /> */}
-      {/* <TrackItem src="logicBomb-Unlimited.png" trackName="High Density" artistName="Logic Bomb" albumName="Unlimited" songLength="8:01" /> */}
+      {/* <TrackItem src="logicBomb-Unlimited.png" trackName="Neighbour Of The Beast" artistName="Logic Bomb" albumName="Unlimited" songLength="7:13" /> */}
+      <Toolbar tabsArr={toolbarData} selected="playlists" />
     </div>
   );
 }

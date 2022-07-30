@@ -1,3 +1,4 @@
+export const SCALE_TINY = "13px";
 export const SCALE_EXTRA_SMALL = "30px";
 export const SCALE_ALMOSTEXTRA_SMALL = "50px";
 export const SCALE_SMALL = "70px";

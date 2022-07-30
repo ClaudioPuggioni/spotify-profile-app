@@ -1,11 +1,6 @@
-.filter-tab-cont {
+.toolbar {
   display: flex;
   flex-direction: column;
-  padding-bottom: 10px;
   justify-content: center;
   align-items: center;
-}
-
-.selectedFilterTab {
-  border-bottom: 2px solid;
 }
