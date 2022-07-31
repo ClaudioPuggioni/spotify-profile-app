@@ -1,5 +1,5 @@
 import React from "react";
-import { SCALE_SMALLMINI, SCALE_ALMOSTSMALL, SCALE_EXTRAEXTRA_SMALL, SCALE_ALMOSTTINY, SCALE_TINY, SCALE_MEDLARGE, SCALE_LARGE, SCALE_MED, SCALE_SMALL, SCALE_ALMOSTEXTRA_SMALL, SCALE_EXTRA_SMALL } from "../../../styles/sizes";
+import { SCALE_EXTRALARGE, SCALE_SMALLMINI, SCALE_ALMOSTSMALL, SCALE_EXTRAEXTRA_SMALL, SCALE_ALMOSTTINY, SCALE_TINY, SCALE_MEDLARGE, SCALE_LARGE, SCALE_MED, SCALE_SMALL, SCALE_ALMOSTEXTRA_SMALL, SCALE_EXTRA_SMALL } from "../../../styles/sizes";
 import "./styles.css";
 
 export const TYPES = {
@@ -14,6 +14,7 @@ export const TYPES = {
   MED: 9,
   MEDLARGE: 10,
   LARGE: 11,
+  EXTRALARGE: 12,
 };
 
 export default function Image({ imageName = "default.jpg", isBorderedDiv = false, isRoundedDiv = false, isRounded = false, isBordered = false, type = TYPES.SMALL, isProfile = false, style = {} }) {
@@ -61,6 +62,10 @@ export default function Image({ imageName = "default.jpg", isBorderedDiv = false
       scale = SCALE_MEDLARGE;
       padding = 14;
       break;
+    case TYPES.EXTRALARGE:
+      scale = SCALE_EXTRALARGE;
+      padding = 10;
+      break;
     default:
       scale = SCALE_LARGE;
       padding = 30;
@@ -68,7 +73,7 @@ export default function Image({ imageName = "default.jpg", isBorderedDiv = false
   }
   SIZE = { width: scale, height: scale };
   padding = isRounded & isRounded ? padding : 0;
-  console.log("size is", SIZE);
+  // console.log("size is", SIZE);
   return (
     <div className={(isBorderedDiv ? "imgDiv bordered " : "imgDiv ") + (isRoundedDiv ? "rounded" : "") + (isProfile ? " profile" : "")}>
       <img className={(isBordered ? "bordered" : "") + (isRounded ? "rounded " : "")} src={require("../../../assets/" + imageName)} alt={imageName} style={{ ...style, ...SIZE, padding }} />

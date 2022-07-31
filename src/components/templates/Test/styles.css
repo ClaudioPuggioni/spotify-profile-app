@@ -6,17 +6,3 @@
   flex-direction: column;
   align-items: center;
 }
-
-#topTracksDiv {
-  width: 100%;
-  max-width: 65%;
-  margin-top: 69.5px;
-  margin-left: 79px;
-  display: flex;
-  flex-direction: column;
-}
-
-#topTracksBody {
-  margin-top: 24px;
-  display: flex;
-}

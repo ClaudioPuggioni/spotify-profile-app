@@ -9,3 +9,4 @@ export const SCALE_ALMOSTSMALL = "120px";
 export const SCALE_MED = "150px";
 export const SCALE_LARGE = "250px";
 export const SCALE_MEDLARGE = "188px";
+export const SCALE_EXTRALARGE = "316px";

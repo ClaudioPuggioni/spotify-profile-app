@@ -1,0 +1,26 @@
+#playlistsContainer {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#playlistDiv {
+  width: 65%;
+  margin-top: 65px;
+  margin-left: 87px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+#playlistsHeader {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+#playlistsBody {
+  display: flex;
+  gap: 24.5px;
+}

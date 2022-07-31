@@ -11,6 +11,8 @@ import Test from "./components/templates/Test/Test";
 import Profile from "./components/templates/Profile/Profile";
 import Recent from "./components/templates/Recent/Recent";
 import TopArtists from "./components/templates/TopArtists/TopArtists";
+import TopTracks from "./components/templates/TopTracks/TopTracks";
+import Playlists from "./components/templates/Playlists/Playlists";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,8 +22,10 @@ root.render(
         <Route path="/" element={<UserInterface />}>
           <Route index element={<Login />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="recent" element={<Recent />} />
           <Route path="topartists" element={<TopArtists />} />
+          <Route path="toptracks" element={<TopTracks />} />
+          <Route path="recent" element={<Recent />} />
+          <Route path="playlists" element={<Playlists />} />
           <Route path="test" element={<Test />} />
         </Route>
       </Routes>
