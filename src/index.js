@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import Login from "./components/templates/Login/Login";
 import Test from "./components/templates/Test/Test";
 import Profile from "./components/templates/Profile/Profile";
+import Recent from "./components/templates/Recent/Recent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +19,7 @@ root.render(
         <Route path="/" element={<UserInterface />}>
           <Route index element={<Login />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="recent" element={<Recent />} />
           <Route path="test" element={<Test />} />
         </Route>
       </Routes>

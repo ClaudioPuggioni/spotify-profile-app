@@ -1,8 +1,7 @@
-import AppLabel, { TYPES } from "../../atoms/AppLabel/AppLabel";
 import "./styles.css";
-// import HeaderButtonGroup from "../../molecules/HeaderButtonGroup/HeaderButtonGroup";
-// import { TYPES as LABELTYPES } from "../../atoms/AppLabel/AppLabel";
-// import { SPOTIFYWHITE } from "../../../styles/colors";
+import AppLabel, { TYPES } from "../../atoms/AppLabel/AppLabel";
+import { SPOTIFYWHITE } from "../../../styles/colors";
+import TracksList from "../../molecules/TracksList/TracksList";
 
 const tracksArr = [
   { imageNameExt: "logicBomb-unlimited.png", trackName: "Neighbour Of The Beast", artistName: "Logic Bomb", albumName: "Unlimited", songLength: "7:13" },

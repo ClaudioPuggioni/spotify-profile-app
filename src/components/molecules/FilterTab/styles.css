@@ -1,7 +1,7 @@
 .filter-tab-cont {
   display: flex;
   flex-direction: column;
-  padding-bottom: 10px;
+  padding-bottom: 1.4px;
   justify-content: center;
   align-items: center;
 }

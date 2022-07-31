@@ -1,0 +1,10 @@
+.filterBarContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filterBarTabs {
+  display: flex;
+  gap: 16px;
+}

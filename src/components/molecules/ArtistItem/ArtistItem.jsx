@@ -8,7 +8,7 @@ export default function ArtistItem({ itemType = "No artist item type here! - AIM
   return (
     <div className={itemType === "col" ? "artistItem artistItemCol" : "artistItem artistItemRow"}>
       <Image imageName={imageNameExt} type={itemType === "col" ? IMAGE_TYPES.MEDLARGE : IMAGE_TYPES.SMALL} isRounded />
-      <AppLabel style={{ color: SPOTIFYWHITE, fontSize: itemType === "col" ? "16px" : "13px", fontWeight: "500" }} type={"TYPES.SUB_SUB_TITLE"}>
+      <AppLabel style={{ color: SPOTIFYWHITE, fontSize: "13px", fontWeight: "500" }} type={"TYPES.SUB_SUB_TITLE"}>
         {children}
       </AppLabel>
     </div>

@@ -13,5 +13,5 @@
 
 .artistItemCol {
   flex-direction: column;
-  padding: 10px !important;
+  /* padding: 10px !important; */
 }

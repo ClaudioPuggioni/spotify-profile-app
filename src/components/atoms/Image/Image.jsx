@@ -59,7 +59,7 @@ export default function Image({ imageName = "default.jpg", isBorderedDiv = false
       break;
     case TYPES.MEDLARGE:
       scale = SCALE_MEDLARGE;
-      padding = 16;
+      padding = 14;
       break;
     default:
       scale = SCALE_LARGE;
