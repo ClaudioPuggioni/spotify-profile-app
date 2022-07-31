@@ -10,9 +10,9 @@ const tracksArr = [
   { imageNameExt: "fridayNightPlans-plasticLove.jpg", trackName: "Plastic Love", artistName: "Friday Night Plans", albumName: "Plastic Love", songLength: "4:36" },
 ];
 
-export default function Test() {
+export default function TopTracks() {
   return (
-    <div id="testContainer">
+    <div id="topTracksContainer">
       <div id="topTracksDiv">
         <div id="topTracksHeader">
           <FilterBar filterBarArr={filterBarArr} selected={0}>
