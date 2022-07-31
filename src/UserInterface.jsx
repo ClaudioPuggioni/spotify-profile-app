@@ -1,7 +1,7 @@
 import "./styles.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { SPOTIFYBLACK } from "./styles/colors";
+import { PRIMARY } from "./styles/colors";
 import { getAuth, setAuth } from "./slices/testSlice";
 import { Outlet, useSearchParams } from "react-router-dom";
 import MainToolbar from "./components/organisms/MainToolBar/MainToolbar";
@@ -25,8 +25,8 @@ function UserInterface() {
   //   console.log("auth", auth, "token", token, "authLoading", authLoading);
 
   return (
-    <div id="userInterface" style={{ backgroundColor: SPOTIFYBLACK }}>
-      {auth ? <MainToolbar tabsArr={toolbarInputs} selected="profile" fixed={auth ? false : true} /> : null}
+    <div id="userInterface" style={{ backgroundColor: PRIMARY }}>
+      {auth ? <MainToolbar tabsArr={toolbarInputs} selected="profile" fixed /> : null}
       <Outlet />
     </div>
   );

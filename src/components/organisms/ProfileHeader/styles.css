@@ -1,0 +1,21 @@
+.profileHeader {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: pink; */
+}
+
+#profileHeaderImage {
+  padding-bottom: 15px;
+}
+#profileHeaderLabel {
+  /* padding-bottom: 1px; */
+  padding-bottom: 0px;
+}
+#profileHeaderBar {
+  padding-bottom: 15px;
+}
+#profileHeaderButton {
+}

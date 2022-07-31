@@ -1,13 +1,13 @@
 .inlineBtn {
-  padding: 10.8px 21px;
+  padding: 9px 24px;
 
   border-radius: 19%/50%;
-  border: 1px solid;
+  border: 2px solid #c0c0c0;
 
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.7px;
+  letter-spacing: 1.3px;
 }
 .coloredBtn {
   padding: 17px 24px;

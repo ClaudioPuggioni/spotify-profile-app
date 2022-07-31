@@ -8,8 +8,8 @@ export default function ToolbarTab({ selected = false, imageName = "", text = "N
   const selectedStr = selected ? "selectedToolbarTab" : "";
   return (
     <div style={selected ? { backgroundColor: PRIMARY, borderColor: SECONDARY } : { backgroundColor: SPOTIFYBLACK }} className={`toolbar-tab-cont ${selectedStr}`}>
-      <Image imageName={imageName} type={IMAGE_TYPES.TINY} />
-      <AppLabel style={selected ? { color: SPOTIFYWHITE, fontSize: "5.5px" } : { color: GREY, fontSize: "5.5px" }} isBold type={TYPES.PAR}>
+      <Image imageName={imageName} type={IMAGE_TYPES.ALMOSTTINY} />
+      <AppLabel style={selected ? { color: SPOTIFYWHITE, fontSize: "8.5px" } : { color: GREY, fontSize: "8.5px" }} isBold type={TYPES.PAR}>
         {text}
       </AppLabel>
     </div>

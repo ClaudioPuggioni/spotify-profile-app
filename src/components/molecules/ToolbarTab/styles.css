@@ -1,13 +1,13 @@
 .toolbar-tab-cont {
   display: flex;
   flex-direction: column;
-  padding: 8px;
-  padding-right: 11px;
-  gap: 3px;
+  padding: 13px;
+  padding-right: 15px;
+  gap: 5px;
   justify-content: center;
   align-items: center;
   border-left: 4px solid transparent;
-  width: 55px;
+  width: 83px;
   text-transform: capitalize;
 }
 .toolbar-tab-cont img {
@@ -15,7 +15,7 @@
 }
 
 .selectedToolbarTab {
-  border-left: 4px solid;
+  border-left: 5.5px solid;
 }
 
 .selectedToolbarTab img {

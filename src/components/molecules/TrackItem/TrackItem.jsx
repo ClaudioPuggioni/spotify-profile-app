@@ -12,16 +12,16 @@ export default function TrackItem({ imageNameExt = "No image src here! - TIM", t
       <div className="trackItemLeft">
         <Image imageName={imageNameExt} type={IMAGE_TYPES.ALMOSTEXTRA_SMALL} />
         <div className="trackMeta">
-          <AppLabel style={{ color: SPOTIFYWHITE, fontSize: "15.5px", fontWeight: "500" }} type={"TYPES.SUB_SUB_TITLE"}>
+          <AppLabel style={{ color: SPOTIFYWHITE, fontSize: "13px", fontWeight: "500" }} type={"TYPES.SUB_SUB_TITLE"}>
             {trackName}
           </AppLabel>
-          <AppLabel style={{ color: GREY, fontSize: "13.5px", fontWeight: "500" }} type={"TYPES.SUB_SUB_TITLE"}>
+          <AppLabel style={{ color: GREY, fontSize: "11.5px", fontWeight: "500" }} type={"TYPES.SUB_SUB_TITLE"}>
             {artistName + " • " + albumName}
           </AppLabel>
         </div>
       </div>
       <div className="trackItemRight">
-        <AppLabel style={{ color: GREY, fontSize: "13.5px", fontWeight: "500" }} type={"TYPES.SUB_SUB_TITLE"}>
+        <AppLabel style={{ color: GREY, fontSize: "10px", fontWeight: "600" }} type={"TYPES.SUB_SUB_TITLE"}>
           {songLength}
         </AppLabel>
       </div>

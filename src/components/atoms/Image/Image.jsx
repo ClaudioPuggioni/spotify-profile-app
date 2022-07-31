@@ -1,20 +1,22 @@
 import React from "react";
-import { SCALE_EXTRAEXTRA_SMALL, SCALE_ALMOSTTINY, SCALE_TINY, SCALE_MEDLARGE, SCALE_LARGE, SCALE_MED, SCALE_SMALL, SCALE_ALMOSTEXTRA_SMALL, SCALE_EXTRA_SMALL } from "../../../styles/sizes";
+import { SCALE_SMALLMINI, SCALE_ALMOSTSMALL, SCALE_EXTRAEXTRA_SMALL, SCALE_ALMOSTTINY, SCALE_TINY, SCALE_MEDLARGE, SCALE_LARGE, SCALE_MED, SCALE_SMALL, SCALE_ALMOSTEXTRA_SMALL, SCALE_EXTRA_SMALL } from "../../../styles/sizes";
 import "./styles.css";
 
 export const TYPES = {
-  TINY: 7,
-  ALMOSTTINY: 8,
-  EXTRAEXTRA_SMALL: 9,
+  TINY: 1,
+  ALMOSTTINY: 2,
+  EXTRAEXTRA_SMALL: 3,
   EXTRA_SMALL: 4,
-  ALMOSTEXTRA_SMALL: 6,
-  SMALL: 3,
-  MED: 2,
-  MEDLARGE: 5,
-  LARGE: 1,
+  ALMOSTEXTRA_SMALL: 5,
+  SMALLMINI: 6,
+  SMALL: 7,
+  ALMOSTSMALL: 8,
+  MED: 9,
+  MEDLARGE: 10,
+  LARGE: 11,
 };
 
-export default function Image({ imageName = "default.jpg", isRounded = false, isBordered = false, type = TYPES.SMALL, style = {} }) {
+export default function Image({ imageName = "default.jpg", isBorderedDiv = false, isRoundedDiv = false, isRounded = false, isBordered = false, type = TYPES.SMALL, isProfile = false, style = {} }) {
   let SIZE = {};
   let scale = 0;
   let padding = 0;
@@ -39,9 +41,17 @@ export default function Image({ imageName = "default.jpg", isRounded = false, is
       scale = SCALE_ALMOSTEXTRA_SMALL;
       padding = 7;
       break;
+    case TYPES.SMALLMINI:
+      scale = SCALE_SMALLMINI;
+      padding = 9;
+      break;
     case TYPES.SMALL:
       scale = SCALE_SMALL;
       padding = 10;
+      break;
+    case TYPES.ALMOSTSMALL:
+      scale = SCALE_ALMOSTSMALL;
+      padding = 20;
       break;
     case TYPES.MED:
       scale = SCALE_MED;
@@ -59,5 +69,9 @@ export default function Image({ imageName = "default.jpg", isRounded = false, is
   SIZE = { width: scale, height: scale };
   padding = isRounded & isRounded ? padding : 0;
   console.log("size is", SIZE);
-  return <img className={(isRounded ? "rounded " : "") + (isBordered ? "bordered" : "")} src={require("../../../assets/" + imageName)} alt={imageName} style={{ ...style, ...SIZE, padding }} />;
+  return (
+    <div className={(isBorderedDiv ? "imgDiv bordered " : "imgDiv ") + (isRoundedDiv ? "rounded" : "") + (isProfile ? " profile" : "")}>
+      <img className={(isBordered ? "bordered" : "") + (isRounded ? "rounded " : "")} src={require("../../../assets/" + imageName)} alt={imageName} style={{ ...style, ...SIZE, padding }} />
+    </div>
+  );
 }

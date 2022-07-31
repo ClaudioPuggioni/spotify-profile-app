@@ -1,12 +1,22 @@
-img{
-    object-fit: cover;
+img {
+  /* object-fit: cover; */
 }
 
-.rounded{
-    border-radius: 300px;
+.imgDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.bordered{
-    padding: 10px;
-    border: 2px solid white;
+.rounded {
+  border-radius: 50%;
+}
+
+.bordered {
+  /* padding: 10px; */
+  border: 2px solid white;
+}
+
+.profile {
+  padding: 28.5px;
 }
