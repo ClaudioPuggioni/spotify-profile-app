@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserInterface from "./UserInterface";
 import { Provider } from "react-redux";
 import Login from "./components/templates/Login/Login";
+import Test from "./components/templates/Test/Test";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,6 +16,7 @@ root.render(
       <Routes>
         <Route path="/" element={<UserInterface />}>
           <Route index element={<Login />} />
+          <Route path="test" element={<Test />} />
         </Route>
       </Routes>
     </Provider>

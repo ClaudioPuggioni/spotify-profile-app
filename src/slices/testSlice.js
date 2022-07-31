@@ -43,7 +43,7 @@ import { nanoid } from "nanoid";
 // const URLRecent = "https://api.spotify.com/v1/me/player/recently-played";
 const getAuth = createAsyncThunk("apiRedux/fetchAuth", async () => {
   const client_id = "6d9d2ada4edc4edbbaf9123d39707310";
-  const redirect_uri = "http://localhost:3000/";
+  const redirect_uri = "http://localhost:3000/test";
   const state = nanoid();
   const scope = "playlist-read-private user-top-read user-read-recently-played";
   const client_secret = "25c9a61a43954e85a98ca6613c4dedae";
@@ -56,9 +56,6 @@ const getAuth = createAsyncThunk("apiRedux/fetchAuth", async () => {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
   });
   console.log("pong");
-
-  //   const data = await response.json();
-  //   console.log(data);
   window.location.replace(URLAuth, "_blank");
 });
 
