@@ -6,11 +6,11 @@ import { GREY, SPOTIFYWHITE } from "../../../styles/colors";
 
 // Note: left at 100% width to fit list containers.
 
-export default function TrackItem({ src = "No image src here! - TIM", trackName = "No track name here! - TIM", artistName = "No artist name here! - TIM", albumName = "No album name here! - TIM", songLength = "No song length here! - TIM" }) {
+export default function TrackItem({ imageNameExt = "No image src here! - TIM", trackName = "No track name here! - TIM", artistName = "No artist name here! - TIM", albumName = "No album name here! - TIM", songLength = "No song length here! - TIM", itemStyle = {} }) {
   return (
-    <div className="trackItem">
+    <div className="trackItem" style={itemStyle}>
       <div className="trackItemLeft">
-        <Image imageName={src} type={IMAGE_TYPES.ALMOSTEXTRA_SMALL} />
+        <Image imageName={imageNameExt} type={IMAGE_TYPES.ALMOSTEXTRA_SMALL} />
         <div className="trackMeta">
           <AppLabel style={{ color: SPOTIFYWHITE, fontSize: "15.5px", fontWeight: "500" }} type={"TYPES.SUB_SUB_TITLE"}>
             {trackName}

@@ -10,3 +10,7 @@
 #text {
   color: white;
 }
+
+#footerProfile {
+  display: flex;
+}

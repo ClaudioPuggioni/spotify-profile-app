@@ -69,10 +69,13 @@ const toolbarData = [
 
 const apiSlice = createSlice({
   name: "apiRedux",
-  initialState: { auth: null, token: null, authLoading: false, toolbarInputs: toolbarData },
+  initialState: { auth: null, token: null, authLoading: false, toolbarInputs: toolbarData, currTab: "/login" },
   reducers: {
     setAuth: (state, action) => {
       state.auth = action.payload;
+    },
+    setTab: (state, action) => {
+      state.currTab = action.payload;
     },
   },
   extraReducers: {
@@ -96,6 +99,6 @@ const apiSlice = createSlice({
 
 export { getAuth };
 
-export const { setAuth } = apiSlice.actions;
+export const { setAuth, setTab } = apiSlice.actions;
 
 export default apiSlice.reducer;
