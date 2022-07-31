@@ -6,7 +6,9 @@ export default function RoundedButton({
   style = {},
   children = "No Text here!",
   isInline = false,
-  onClick = ()=>{console.error('No action sent! - RBA')}
+  onClick = () => {
+    console.error("No action sent! - RBA");
+  },
 }) {
   return (
     <button
@@ -14,7 +16,7 @@ export default function RoundedButton({
       style={{
         color: SPOTIFYWHITE,
         backgroundColor: isInline ? "transparent" : SECONDARY,
-        ...style
+        ...style,
       }}
       onClick={onClick}
     >

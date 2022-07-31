@@ -17,7 +17,7 @@ export const TYPES = {
   EXTRALARGE: 12,
 };
 
-export default function Image({ imageName = "default.jpg", isBorderedDiv = false, isRoundedDiv = false, isRounded = false, isBordered = false, type = TYPES.SMALL, isProfile = false, style = {} }) {
+export default function Image({ imageName = "default.jpg", isBorderedDiv = false, isRoundedDiv = false, isRounded = false, isBordered = false, type = TYPES.SMALL, isProfile = false, style = {}, onClick = () => {} }) {
   let SIZE = {};
   let scale = 0;
   let padding = 0;
@@ -75,7 +75,7 @@ export default function Image({ imageName = "default.jpg", isBorderedDiv = false
   padding = isRounded & isRounded ? padding : 0;
   // console.log("size is", SIZE);
   return (
-    <div className={(isBorderedDiv ? "imgDiv bordered " : "imgDiv ") + (isRoundedDiv ? "rounded" : "") + (isProfile ? " profile" : "")}>
+    <div className={(isBorderedDiv ? "imgDiv bordered " : "imgDiv ") + (isRoundedDiv ? "rounded" : "") + (isProfile ? " profile" : "")} onClick={onClick}>
       <img className={(isBordered ? "bordered" : "") + (isRounded ? "rounded " : "")} src={require("../../../assets/" + imageName)} alt={imageName} style={{ ...style, ...SIZE, padding }} />
     </div>
   );

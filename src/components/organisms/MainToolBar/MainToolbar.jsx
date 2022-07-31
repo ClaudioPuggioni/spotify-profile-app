@@ -3,12 +3,33 @@ import "./styles.css";
 import Image, { TYPES as IMAGE_TYPES } from "../../atoms/Image/Image";
 import { SPOTIFYBLACK } from "../../../styles/colors";
 import ToolbarTab from "../../molecules/ToolbarTab/ToolbarTab";
+import { useNavigate } from "react-router-dom";
+import { setTab } from "../../../slices/dataSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function MainToolbar({ tabsArr = "tab array is missing - TTM", selected = "", fixed = false }) {
+  const Navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { currTab } = useSelector((state) => state.dataLocker);
   return (
     <div className="fullPaneToolbar" style={{ backgroundColor: SPOTIFYBLACK, position: fixed ? "fixed" : "" }}>
-      <Image imageName="spotifyIcon.svg" type={IMAGE_TYPES.ALMOSTEXTRA_SMALL} style={{ filter: "invert(54%) sepia(58%) saturate(1865%) hue-rotate(99deg) brightness(95%) contrast(78%)" }} />
-      <div className="toolbar">{tabsArr.length > 0 ? tabsArr.map((ele) => <ToolbarTab imageName={ele.fileNameExt} text={ele.name} selected={selected === ele.name ? selected : ""}></ToolbarTab>) : tabsArr}</div>
+      <Image imageName="spotifyIcon.svg" type={IMAGE_TYPES.ALMOSTEXTRA_SMALL} style={{ filter: "invert(54%) sepia(58%) saturate(1865%) hue-rotate(99deg) brightness(95%) contrast(78%)" }} onClick={() => window.location.replace("https://open.spotify.com/", "_blank")} />
+      <div className="toolbar">
+        {tabsArr.length > 0
+          ? tabsArr.map((ele) => (
+              <ToolbarTab
+                imageName={ele.fileNameExt}
+                text={ele.name}
+                selected={currTab === ele.linkName ? true : false}
+                onClick={() => {
+                  console.log("currTab is", currTab);
+                  Navigate(`/${ele.linkName}`);
+                  dispatch(setTab(ele.linkName));
+                }}
+              />
+            ))
+          : tabsArr}
+      </div>
       <Image imageName="githubIcon.svg" type={IMAGE_TYPES.EXTRAEXTRA_SMALL} style={{ filter: "invert(54%)" }} />
     </div>
   );

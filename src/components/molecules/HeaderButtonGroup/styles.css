@@ -13,4 +13,5 @@
 
 .col {
   flex-direction: column;
+  gap: 24.5px;
 }

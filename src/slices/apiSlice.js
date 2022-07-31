@@ -59,23 +59,12 @@ const getAuth = createAsyncThunk("apiRedux/fetchAuth", async () => {
   window.location.replace(URLAuth, "_blank");
 });
 
-const toolbarData = [
-  { fileNameExt: "profileIcon.svg", name: "profile" },
-  { fileNameExt: "topArtistsIcon.svg", name: "top artists" },
-  { fileNameExt: "topTracksIcon.svg", name: "top tracks" },
-  { fileNameExt: "recentIcon.svg", name: "recent" },
-  { fileNameExt: "playlistsIcon.svg", name: "playlists" },
-];
-
 const apiSlice = createSlice({
   name: "apiRedux",
-  initialState: { auth: null, token: null, authLoading: false, toolbarInputs: toolbarData, currTab: "/login" },
+  initialState: { auth: null, token: null, authLoading: false },
   reducers: {
     setAuth: (state, action) => {
       state.auth = action.payload;
-    },
-    setTab: (state, action) => {
-      state.currTab = action.payload;
     },
   },
   extraReducers: {
@@ -99,6 +88,6 @@ const apiSlice = createSlice({
 
 export { getAuth };
 
-export const { setAuth, setTab } = apiSlice.actions;
+export const { setAuth } = apiSlice.actions;
 
 export default apiSlice.reducer;

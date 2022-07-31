@@ -2,32 +2,34 @@ import "./styles.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { PRIMARY } from "./styles/colors";
-import { getAuth, setAuth } from "./slices/testSlice";
-import { Outlet, useSearchParams } from "react-router-dom";
+import { getAuth, setAuth } from "./slices/apiSlice";
+import { setTab } from "./slices/dataSlice";
+import { Outlet, useSearchParams, useNavigate } from "react-router-dom";
 import MainToolbar from "./components/organisms/MainToolBar/MainToolbar";
-import Login from "./components/templates/Login/Login";
 
 function UserInterface() {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
-  const { auth, token, authLoading, toolbarInputs } = useSelector((state) => state.apiRedux);
+  const Navigate = useNavigate();
+  const { auth, token, authLoading } = useSelector((state) => state.apiRedux);
+  const { toolbarInputs, currTab } = useSelector((state) => state.dataLocker);
 
   useEffect(() => {
-    console.log("auth start is null:", auth);
+    console.log(auth);
     if (window.location.search.length > 0 && !auth) {
-      const urlParams = new URLSearchParams(window.location.search);
       dispatch(setAuth(searchParams.get("code")));
-    } else {
-      dispatch(getAuth());
+      Navigate("/Profile");
     }
   }, []);
 
-  //   console.log("auth", auth, "token", token, "authLoading", authLoading);
+  const handleGetAuth = () => {
+    dispatch(getAuth());
+  };
 
   return (
     <div id="userInterface" style={{ backgroundColor: PRIMARY }}>
       {auth ? <MainToolbar tabsArr={toolbarInputs} selected="profile" fixed /> : null}
-      <Outlet />
+      <Outlet context={[handleGetAuth, setTab, currTab]} />
     </div>
   );
 }
