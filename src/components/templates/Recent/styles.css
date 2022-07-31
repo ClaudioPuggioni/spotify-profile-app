@@ -1,8 +1,17 @@
-#loginContainer {
-  height: 100vh;
+#recentContainer {
+  height: 100%;
   width: 100%;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+
+#recentDiv {
+  display: flex;
+  flex-direction: column;
+  margin-top: 64px;
+  width: 100%;
+  max-width: 1020px;
+  gap: 30px;
 }
