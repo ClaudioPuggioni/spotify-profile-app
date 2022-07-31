@@ -4,9 +4,9 @@ import PlaylistItem from "../../molecules/PlaylistItem/PlaylistItem";
 import { SPOTIFYWHITE } from "../../../styles/colors";
 
 const playlistsArr = [
-  { imageNameExt: "playlist1.webp", playlistTitle: "EDM Anytime", trackCount: 0 },
-  { imageNameExt: "playlist2.jpg", playlistTitle: "Evening Chillout", trackCount: 0 },
-  { imageNameExt: "playlist3.jpg", playlistTitle: "Club Cyberpunk", trackCount: 0 },
+  { imageNameExt: "playlist1.webp", playlistTitle: "EDM Anytime", trackCount: 56 },
+  { imageNameExt: "playlist2.jpg", playlistTitle: "Evening Chillout", trackCount: 35 },
+  { imageNameExt: "playlist3.jpg", playlistTitle: "Club Cyberpunk", trackCount: 129 },
 ];
 
 export default function Playlists() {

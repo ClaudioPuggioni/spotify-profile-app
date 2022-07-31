@@ -11,12 +11,12 @@
   width: 100%;
   max-width: 65%;
   margin-top: 69.5px;
-  margin-left: 79px;
+  margin-left: 77px;
   display: flex;
   flex-direction: column;
 }
 
 #topTracksBody {
-  margin-top: 24px;
+  margin-top: 26px;
   display: flex;
 }

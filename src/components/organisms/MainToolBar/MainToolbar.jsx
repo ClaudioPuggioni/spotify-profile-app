@@ -22,7 +22,6 @@ export default function MainToolbar({ tabsArr = "tab array is missing - TTM", se
                 text={ele.name}
                 selected={currTab === ele.linkName ? true : false}
                 onClick={() => {
-                  console.log("currTab is", currTab);
                   Navigate(`/${ele.linkName}`);
                   dispatch(setTab(ele.linkName));
                 }}
@@ -30,7 +29,7 @@ export default function MainToolbar({ tabsArr = "tab array is missing - TTM", se
             ))
           : tabsArr}
       </div>
-      <Image imageName="githubIcon.svg" type={IMAGE_TYPES.EXTRAEXTRA_SMALL} style={{ filter: "invert(54%)" }} />
+      <Image imageName="githubIcon.svg" type={IMAGE_TYPES.EXTRAEXTRA_SMALL} style={{ filter: "invert(54%)" }} onClick={() => window.location.replace("https://github.com/", "_blank")} />
     </div>
   );
 }

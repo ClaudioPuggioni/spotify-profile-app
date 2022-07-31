@@ -19,6 +19,8 @@ function UserInterface() {
     if (window.location.search.length > 0 && !auth) {
       dispatch(setAuth(searchParams.get("code")));
       Navigate("/Profile");
+    } else if (!auth) {
+      Navigate("/");
     }
   }, []);
 

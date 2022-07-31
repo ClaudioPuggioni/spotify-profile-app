@@ -10,9 +10,9 @@
 #recentDiv {
   display: flex;
   flex-direction: column;
-  margin-top: 64px;
-  margin-left: 88px;
+  margin-top: 71px;
+  margin-left: 77px;
   width: 100%;
-  max-width: 990px;
-  gap: 30px;
+  max-width: 65%;
+  gap: 37px;
 }
