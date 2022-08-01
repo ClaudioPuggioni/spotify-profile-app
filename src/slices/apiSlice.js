@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
-import {Buffer} from 'buffer';
+import { Buffer } from "buffer";
 
 const dev_id = "6d9d2ada4edc4edbbaf9123d39707310";
 const client_secret = "25c9a61a43954e85a98ca6613c4dedae";
@@ -22,25 +22,25 @@ const apiSlice = createSlice({
     auth: null,
     token: null,
     authLoading: false,
-    errorMessage: ''
+    errorMessage: "",
   },
   reducers: {
     resetValid: (state, action) => {
       state.isValid = false;
-      state.errorMessage = '';
+      state.errorMessage = "";
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(testAuth.fulfilled, (state, action) => {
-          const [status, code] = action.payload;
+        const [status, code] = action.payload;
         if (status === 200) {
           state.isValid = true;
           state.auth = code;
         }
       })
       .addCase(testAuth.rejected, (state, action) => {
-        console.log(action.error)
+        console.log(action.error);
         state.isValid = false;
         state.errorMessage = action.error.message;
       });
@@ -50,21 +50,22 @@ const apiSlice = createSlice({
 const testAuth = createAsyncThunk("apiRedux/testAuth", async (code) => {
   let response = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
-    form: {
-      grant_type: "authorization code",
-      code, 
-      redirectui: "http://localhost:3000/profile",
-      Authorization:
-        "Basic " + Buffer.from(dev_id + ":" + client_secret).toString("base64"),
+    headers: {
+      Authorization: "Basic " + Buffer.from(dev_id + ":" + client_secret).toString("base64"),
       "Content-Type": "application/x-www-form-urlencoded",
     },
+    body: {
+      grant_type: "authorization code",
+      code: ,
+      redirectui: "http://localhost:3000/profile",
+    },
   });
-  console.log('Finished Testing!')
-  return [response.status,code];
+  console.log("Finished Testing!");
+  return [response.status, code];
 });
 
 export { getAuth, testAuth };
 
-export const { setAuth, resetValid} = apiSlice.actions;
+export const { setAuth, resetValid } = apiSlice.actions;
 
 export default apiSlice.reducer;
