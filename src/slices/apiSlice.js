@@ -56,7 +56,7 @@ const testAuth = createAsyncThunk("apiRedux/testAuth", async (code) => {
     },
     body: {
       grant_type: "authorization code",
-      code: ,
+      code: "",
       redirectui: "http://localhost:3000/profile",
     },
   });
