@@ -17,6 +17,7 @@ root.render(
   <Router>
     <Provider store={store}>
       <Routes>
+      <Route path="/test" element={<Test/>}/>
         <Route path="/" element={<UserInterface />}>
           <Route index element={<Login />} />
           <Route path="profile" element={<Profile />} />

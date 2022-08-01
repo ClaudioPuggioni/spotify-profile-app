@@ -10,4 +10,4 @@ export const SPOTIFYBLACK = "#040306";
 
 export const SUCESS = "";
 export const ALERT = "";
-export const ERROR = "";
+export const ERROR = "#ed4337";

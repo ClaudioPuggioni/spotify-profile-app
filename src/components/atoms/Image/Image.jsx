@@ -1,5 +1,18 @@
 import React from "react";
-import { SCALE_EXTRALARGE, SCALE_SMALLMINI, SCALE_ALMOSTSMALL, SCALE_EXTRAEXTRA_SMALL, SCALE_ALMOSTTINY, SCALE_TINY, SCALE_MEDLARGE, SCALE_LARGE, SCALE_MED, SCALE_SMALL, SCALE_ALMOSTEXTRA_SMALL, SCALE_EXTRA_SMALL } from "../../../styles/sizes";
+import {
+  SCALE_EXTRALARGE,
+  SCALE_SMALLMINI,
+  SCALE_ALMOSTSMALL,
+  SCALE_EXTRAEXTRA_SMALL,
+  SCALE_ALMOSTTINY,
+  SCALE_TINY,
+  SCALE_MEDLARGE,
+  SCALE_LARGE,
+  SCALE_MED,
+  SCALE_SMALL,
+  SCALE_ALMOSTEXTRA_SMALL,
+  SCALE_EXTRA_SMALL,
+} from "../../../styles/sizes";
 import "./styles.css";
 
 export const TYPES = {
@@ -17,7 +30,17 @@ export const TYPES = {
   EXTRALARGE: 12,
 };
 
-export default function Image({ imageName = "default.jpg", isBorderedDiv = false, isRoundedDiv = false, isRounded = false, isBordered = false, type = TYPES.SMALL, isProfile = false, style = {}, onClick = () => {} }) {
+export default function Image({
+  imageName = "default.jpg",
+  isBorderedDiv = false,
+  isRoundedDiv = false,
+  isRounded = false,
+  isBordered = false,
+  type = TYPES.SMALL,
+  isProfile = false,
+  style = {},
+  onClick = () => {},
+}) {
   let SIZE = {};
   let scale = 0;
   let padding = 0;
@@ -75,8 +98,22 @@ export default function Image({ imageName = "default.jpg", isBorderedDiv = false
   padding = isRounded & isRounded ? padding : 0;
   // console.log("size is", SIZE);
   return (
-    <div className={(isBorderedDiv ? "imgDiv bordered " : "imgDiv ") + (isRoundedDiv ? "rounded" : "") + (isProfile ? " profile" : "")} onClick={onClick}>
-      <img className={(isBordered ? "bordered" : "") + (isRounded ? "rounded " : "")} src={require("../../../assets/" + imageName)} alt={imageName} style={{ ...style, ...SIZE, padding }} />
+    <div
+      className={
+        (isBorderedDiv ? "imgDiv bordered " : "imgDiv ") +
+        (isRoundedDiv ? "rounded" : "") +
+        (isProfile ? " profile" : "")
+      }
+      onClick={onClick}
+    >
+      <img
+        className={
+          (isBordered ? "bordered" : "") + (isRounded ? "rounded " : "")
+        }
+        src={require("../../../assets/" + imageName)}
+        alt={imageName}
+        style={{ ...style, ...SIZE, padding }}
+      />
     </div>
   );
 }
