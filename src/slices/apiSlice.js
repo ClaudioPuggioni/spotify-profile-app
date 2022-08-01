@@ -42,14 +42,14 @@ import { nanoid } from "nanoid";
 
 // const URLRecent = "https://api.spotify.com/v1/me/player/recently-played";
 const getAuth = createAsyncThunk("apiRedux/fetchAuth", async () => {
-  const client_id = "6d9d2ada4edc4edbbaf9123d39707310";
+  const dev_id = "6d9d2ada4edc4edbbaf9123d39707310";
   const redirect_uri = "http://localhost:3000/test";
   const state = nanoid();
   const scope = "playlist-read-private user-top-read user-read-recently-played";
   const client_secret = "25c9a61a43954e85a98ca6613c4dedae";
   //, Authorization: "Basic " + Buffer(client_id + ":" + client_secret).toString("base64")
   console.log("ping");
-  let URLAuth = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=code&scope=${scope}&redirect_uri=${redirect_uri}&state=${state}`;
+  let URLAuth = `https://accounts.spotify.com/authorize?client_id=${dev_id}&response_type=code&scope=${scope}&redirect_uri=${redirect_uri}&state=${state}`;
   const response = await fetch(URLAuth, {
     method: "GET",
     mode: "no-cors",
