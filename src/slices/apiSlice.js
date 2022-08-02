@@ -42,6 +42,11 @@ const apiSlice = createSlice({
       })
       .addCase(testAuth.pending, (state, action) => {})
       .addCase(testAuth.rejected, (state, action) => {
+        // const [data, code, status] = action.payload;
+        // if (status === 401) {
+        //   refreshAuth(state.refresh_token);
+        // }
+
         console.log(action.error);
         state.isValid = false;
         state.errorMessage = action.error.message;
@@ -63,10 +68,10 @@ const testAuth = createAsyncThunk("apiRedux/testAuth", async (code) => {
   return [data, code, response.status];
 });
 
-const refreshAuth = createAsyncThunk("apiRedux/testAuth", async (code, refreshToken) => {
+const refreshAuth = createAsyncThunk("apiRedux/testAuth", async (refreshToken) => {
   let response = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
-    body: `grant_type=resfresh_token&code=${code}&refresh_token=${refreshToken}&client_id=${dev_id}`,
+    body: `grant_type=resfresh_token&refresh_token=${refreshToken}&client_id=${dev_id}`,
     headers: {
       Authorization: `Basic ${Buffer.from(dev_id + ":" + client_secret).toString("base64")}`,
       "Content-Type": "application/x-www-form-urlencoded",
@@ -74,7 +79,7 @@ const refreshAuth = createAsyncThunk("apiRedux/testAuth", async (code, refreshTo
   });
   let data = await response.json();
   console.log("Finished Testing!", data);
-  return [response.status, code];
+  return [data, response.status];
 });
 
 export { getAuth, testAuth };
