@@ -63,6 +63,22 @@ const testAuth = createAsyncThunk("apiRedux/testAuth", async (code) => {
   });
   let data = await response.json();
   return [data, code, response];
+  console.log("Finished Testing!", data);
+  return [data, code, response.status];
+});
+
+const refreshAuth = createAsyncThunk("apiRedux/testAuth", async (refreshToken) => {
+  let response = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
+    body: `grant_type=resfresh_token&refresh_token=${refreshToken}&client_id=${dev_id}`,
+    headers: {
+      Authorization: `Basic ${Buffer.from(dev_id + ":" + client_secret).toString("base64")}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+  let data = await response.json();
+  console.log("Finished Testing!", data);
+  return [data, response.status];
 });
 
 export { getAuth, testAuth };
