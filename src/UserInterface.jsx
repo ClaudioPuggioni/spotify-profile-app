@@ -19,18 +19,16 @@ function UserInterface() {
       console.log('Entered')
     } else if (!auth) {
       Navigate("/");
+    }else {
+      if (isValid) {
+        dispatch(resetValid());
+        Navigate("/Profile");
+      } else {
+        setSearchParams({ message: errorMessage });
+        Navigate("/test");
+      }
     }
   }, []);
-
-  if(!isLoading){
-    if (isValid) {
-      dispatch(resetValid());
-      Navigate("/Profile");
-    } else {
-      setSearchParams({ message: errorMessage });
-      Navigate("/test");
-    }
-  }
 
   return (
     <div id="userInterface" style={{ backgroundColor: PRIMARY }}>
