@@ -82,6 +82,20 @@ const refreshAuth = createAsyncThunk("apiRedux/testAuth", async (refreshToken) =
   return [data, response.status];
 });
 
+const getRecent = createAsyncThunk("apiRedux/testAuth", async (refreshToken) => {
+  let response = await fetch("https://api.spotify.com/v1/me/player/recently-played", {
+    method: "GET",
+    body: `grant_type=resfresh_token&refresh_token=${refreshToken}&client_id=${dev_id}`,
+    headers: {
+      Authorization: `Basic ${Buffer.from(dev_id + ":" + client_secret).toString("base64")}`,
+      "Content-Type": "application/json",
+    },
+  });
+  let data = await response.json();
+  console.log("Finished Testing!", data);
+  return [data, response.status];
+});
+
 export { getAuth, testAuth };
 
 export const { setAuth, resetValid } = apiSlice.actions;
