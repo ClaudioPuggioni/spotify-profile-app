@@ -63,10 +63,10 @@ const testAuth = createAsyncThunk("apiRedux/testAuth", async (code) => {
   return [data, code, response.status];
 });
 
-const refreshAuth = createAsyncThunk("apiRedux/testAuth", async (code) => {
+const refreshAuth = createAsyncThunk("apiRedux/testAuth", async (code, refreshToken) => {
   let response = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
-    body: `grant_type=resfresh_token&code=${code}&redirect_uri=${redirect_uri}&client_id=${dev_id}&client_secret=${client_secret}`,
+    body: `grant_type=resfresh_token&code=${code}&refresh_token=${refreshToken}&client_id=${dev_id}`,
     headers: {
       Authorization: `Basic ${Buffer.from(dev_id + ":" + client_secret).toString("base64")}`,
       "Content-Type": "application/x-www-form-urlencoded",
