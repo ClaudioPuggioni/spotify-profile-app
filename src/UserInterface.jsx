@@ -6,12 +6,13 @@ import { testAuth, resetValid } from "./slices/apiSlice";
 import { setTab } from "./slices/dataSlice";
 import { Outlet, useSearchParams, useNavigate } from "react-router-dom";
 import MainToolbar from "./components/organisms/MainToolBar/MainToolbar";
+import ErrorPopUp from "./components/organisms/ErrorPopUp copy/ErrorPopUp";
 
 function UserInterface() {
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
   const Navigate = useNavigate();
-  const { auth, errorMessage, isValid, isLoading } = useSelector((state) => state.apiRedux);
+  const { auth, loading, errorMessage } = useSelector((state) => state.apiRedux);
   const { toolbarInputs, currTab } = useSelector((state) => state.dataLocker);
   useEffect(() => {
     if (window.location.search.length > 0 && !auth) {
@@ -19,14 +20,6 @@ function UserInterface() {
       console.log('Entered')
     } else if (!auth) {
       Navigate("/");
-    }else {
-      if (isValid) {
-        dispatch(resetValid());
-        Navigate("/Profile");
-      } else {
-        setSearchParams({ message: errorMessage });
-        Navigate("/test");
-      }
     }
   }, []);
 
@@ -35,6 +28,7 @@ function UserInterface() {
       {auth ? (
         <MainToolbar tabsArr={toolbarInputs} selected="profile" fixed />
       ) : null}
+      <ErrorPopUp loading={loading} errorMessage={errorMessage}/>
       <Outlet />
     </div>
   );
