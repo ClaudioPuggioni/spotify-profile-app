@@ -11,23 +11,26 @@ function UserInterface() {
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
   const Navigate = useNavigate();
-  const { auth, errorMessage, isValid } = useSelector((state) => state.apiRedux);
+  const { auth, errorMessage, isValid, isLoading } = useSelector((state) => state.apiRedux);
   const { toolbarInputs, currTab } = useSelector((state) => state.dataLocker);
-
   useEffect(() => {
     if (window.location.search.length > 0 && !auth) {
       dispatch(testAuth(searchParams.get("code")));
-      if (isValid) {
-        dispatch(resetValid());
-        Navigate("/Profile");
-      } else {
-        setSearchParams({ message: errorMessage });
-        Navigate("/test");
-      }
+      console.log('Entered')
     } else if (!auth) {
       Navigate("/");
     }
   }, []);
+
+  if(!isLoading){
+    if (isValid) {
+      dispatch(resetValid());
+      Navigate("/Profile");
+    } else {
+      setSearchParams({ message: errorMessage });
+      Navigate("/test");
+    }
+  }
 
   return (
     <div id="userInterface" style={{ backgroundColor: PRIMARY }}>

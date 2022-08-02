@@ -19,6 +19,7 @@ const apiSlice = createSlice({
     isValid: false,
     auth: null,
     token: null,
+    refresh_token: null,
     authLoading: false,
     errorMessage: "",
   },
@@ -31,11 +32,16 @@ const apiSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(testAuth.fulfilled, (state, action) => {
-        const [status, code] = action.payload;
+        const [data,code,status] = action.payload;
         if (status === 200) {
           state.isValid = true;
           state.auth = code;
+          state.token = data.access_token;
+          state.refresh_token = data.refresh_token;
         }
+      })
+      .addCase(testAuth.pending, (state, action)=>{
+        
       })
       .addCase(testAuth.rejected, (state, action) => {
         console.log(action.error);
@@ -55,8 +61,7 @@ const testAuth = createAsyncThunk("apiRedux/testAuth", async (code) => {
     },
   });
   let data = await response.json();
-  console.log("Finished Testing!", data);
-  return [response.status, code];
+  return [data,code,response.status];
 });
 
 export { getAuth, testAuth };
