@@ -1,10 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import BASE64, {
-  ACCESS_TOKEN_KEY,
-  AUTH_CODE_KEY,
-  CLIENT_SECRET,
-  REDIRECT_URI,
-} from "../utils/constants";
+import BASE64, { ACCESS_TOKEN_KEY, AUTH_CODE_KEY, CLIENT_SECRET, REDIRECT_URI } from "../utils/constants";
 
 const apiSlice = createSlice({
   name: "apiRedux",
