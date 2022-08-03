@@ -11,6 +11,7 @@ import Recent from "./components/templates/Recent/Recent";
 import TopArtists from "./components/templates/TopArtists/TopArtists";
 import TopTracks from "./components/templates/TopTracks/TopTracks";
 import Playlists from "./components/templates/Playlists/Playlists";
+import Validate from "./pages/Validate/Validate";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,7 +19,8 @@ root.render(
     <Provider store={store}>
       <Routes>
         <Route path="/" element={<UserInterface />}>
-          <Route index element={<Login />} />
+          <Route index element={<Validate />} />
+          <Route path="/login" element={<Login />} />
           <Route path="profile" element={<Profile />} />
           <Route path="topartists" element={<TopArtists />} />
           <Route path="toptracks" element={<TopTracks />} />

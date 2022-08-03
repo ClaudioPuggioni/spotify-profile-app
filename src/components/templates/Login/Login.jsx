@@ -2,10 +2,23 @@ import "./styles.css";
 import HeaderButtonGroup from "../../molecules/HeaderButtonGroup/HeaderButtonGroup";
 import { TYPES as LABELTYPES } from "../../atoms/AppLabel/AppLabel";
 import { SPOTIFYWHITE } from "../../../styles/colors";
-import { getAuth } from "../../../slices/apiSlice";
-
+import { getAuthLink } from "../../../utils/constants";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setLoading } from "../../../slices/apiSlice";
 
 export default function Login() {
+  const { auth } = useSelector((state) => state.apiRedux);
+  const dispatch = useDispatch();
+  const navigator = useNavigate();
+  useEffect(() => {
+    if (auth) {
+      // dispatch(setLoading(true));
+      navigator("/");
+    }
+  });
+
   return (
     <div id="loginContainer">
       <HeaderButtonGroup
@@ -20,7 +33,7 @@ export default function Login() {
           borderRadius: "11%/47%",
           letterSpacing: "2.1px",
         }}
-        onClick={() =>  window.location.href = `${getAuth()}` }
+        onClick={() => (window.location.href = `${getAuthLink()}`)}
       />
       ;
     </div>

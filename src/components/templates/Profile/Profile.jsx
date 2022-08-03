@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import { SPOTIFYWHITE } from "../../../styles/colors";
 import ArtistsList from "../../molecules/ArtistsList/ArtistsLists";
 import HeaderButtonGroup from "../../molecules/HeaderButtonGroup/HeaderButtonGroup";
@@ -33,18 +33,7 @@ const profileStatusArr = [
   { number: 3, label: "Playlists" },
 ];
 
-const handleDataReceived = (data)=>{
-  dispa
-}
-const handleError = (error)=>{
-
-}
-
 export default function Profile() {
-  useEffect(()=>{
-    handleAPIRequest(getRecentlyPlayed,{},handleDataReceived,handleError);
-  },[])
-
   return (
     <div id="profileContainer">
       <div id="headerProfile">
