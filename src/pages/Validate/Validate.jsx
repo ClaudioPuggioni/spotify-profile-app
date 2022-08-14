@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { testAuth, refreshAccessToken, setLoading } from "../../slices/apiSlice";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import LoadingErrorPopUp from "../../components/organisms/ErrorPopUp/LoadingErrorPopUp";
-import { getDataThunk } from "../../slices/profileSlice";
+import { getDataThunk } from "../../slices/infoSlice";
 import { FOLLOWER_USER_URL, FOLLOWING_URL, PLAYLIST_COUNT_URL, RECENT_URL, TOP_ARTISTS_URL, TOP_TRACKS_URL } from "../../utils/constants";
 
 export default function Validate() {

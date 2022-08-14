@@ -8,7 +8,7 @@ export const BASE64 = Buffer.from(DEV_ID + ":" + CLIENT_SECRET).toString("base64
 
 export const getAuthLink = () => {
   const state = nanoid();
-  const scope = "playlist-read-private user-top-read user-read-recently-played";
+  const scope = "playlist-read-private user-top-read user-read-recently-played user-follow-read";
   return `https://accounts.spotify.com/authorize?client_id=${DEV_ID}&response_type=code&scope=${scope}&redirect_uri=${REDIRECT_URI}&state=${state}`;
 };
 

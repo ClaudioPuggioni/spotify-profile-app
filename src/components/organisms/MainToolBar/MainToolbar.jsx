@@ -13,7 +13,7 @@ export default function MainToolbar({ tabsArr = "tab array is missing - TTM", se
   const { currTab } = useSelector((state) => state.dataLocker);
   return (
     <div className="fullPaneToolbar" style={{ backgroundColor: SPOTIFYBLACK, position: fixed ? "fixed" : "" }}>
-      <Image imageName="spotifyIcon.svg" type={IMAGE_TYPES.ALMOSTEXTRA_SMALL} style={{ filter: "invert(54%) sepia(58%) saturate(1865%) hue-rotate(99deg) brightness(95%) contrast(78%)" }} onClick={() => window.location.replace("https://open.spotify.com/", "_blank")} />
+      <Image imageName="spotifyIcon.svg" type={IMAGE_TYPES.ALMOSTEXTRA_SMALL} imgStyle={{ filter: "invert(54%) sepia(58%) saturate(1865%) hue-rotate(99deg) brightness(95%) contrast(78%)" }} onClick={() => window.location.replace("https://open.spotify.com/", "_blank")} />
       <div className="toolbar">
         {tabsArr.length > 0
           ? tabsArr.map((ele) => (
@@ -29,7 +29,7 @@ export default function MainToolbar({ tabsArr = "tab array is missing - TTM", se
             ))
           : tabsArr}
       </div>
-      <Image imageName="githubIcon.svg" type={IMAGE_TYPES.EXTRAEXTRA_SMALL} style={{ filter: "invert(54%)" }} onClick={() => window.location.replace("https://github.com/", "_blank")} />
+      <Image imageName="githubIcon.svg" type={IMAGE_TYPES.EXTRAEXTRA_SMALL} imgStyle={{ filter: "invert(54%)" }} onClick={() => window.location.replace("https://github.com/", "_blank")} />
     </div>
   );
 }

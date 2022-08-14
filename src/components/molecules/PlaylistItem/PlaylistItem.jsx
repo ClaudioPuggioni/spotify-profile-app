@@ -3,10 +3,10 @@ import AppLabel from "../../atoms/AppLabel/AppLabel";
 import Image, { TYPES as IMAGE_TYPES } from "../../atoms/Image/Image";
 import { GREY, SPOTIFYWHITE } from "../../../styles/colors";
 
-export default function PlaylistItem({ imageNameExt = "No image src here! - PM", playlistTitle = "No playlist name here! - PM", trackCount = "No track count name here! - PM", itemStyle = {} }) {
+export default function PlaylistItem({ imageSrc = false, imageNameExt = "No image src here! - PM", playlistTitle = "No playlist name here! - PM", trackCount = "No track count name here! - PM", imgStyle = [], itemStyle = {} }) {
   return (
     <div className="playlistItem" style={itemStyle}>
-      <Image imageName={imageNameExt} type={IMAGE_TYPES.EXTRALARGE} />
+      <Image imageSrc={imageSrc} imageName={imageNameExt} type={IMAGE_TYPES.EXTRALARGE} imgStyle={imgStyle} />
       <div className="playlistMeta">
         <AppLabel style={{ color: SPOTIFYWHITE, fontSize: "13px", fontWeight: "500" }} type={"TYPES.SUB_SUB_TITLE"}>
           {playlistTitle}

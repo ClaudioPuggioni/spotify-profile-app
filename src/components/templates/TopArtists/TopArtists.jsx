@@ -1,42 +1,42 @@
-import ArtistsList from "../../molecules/ArtistsList/ArtistsLists";
+import ArtistsList from "../../molecules/ArtistsList/ArtistsList";
 import FilterBar from "../../molecules/FilterBar/FilterBar";
 import "./styles.css";
 
-const filterBarArr = ["All Time", "Last 6 Months", "Last 4 Weeks"];
+// const filterBarArr = ["All Time", "Last 6 Months", "Last 4 Weeks"];
 
-const artistsArr = [
-  {
-    imageNameExt: "logicBomb.webp",
-    artistName: "Logic Bomb",
-  },
-  {
-    imageNameExt: "logicBomb.webp",
-    artistName: "Logic Bomb",
-  },
-  {
-    imageNameExt: "macAyres.jpg",
-    artistName: "Mac Ayres",
-  },
-  {
-    imageNameExt: "fridayNightPlans.jpg",
-    artistName: "Friday Night Plans",
-  },
-  {
-    imageNameExt: "fridayNightPlans.jpg",
-    artistName: "Friday Night Plans",
-  },
+// const artistsArr = [
+//   {
+//     imageNameExt: "logicBomb.webp",
+//     artistName: "Logic Bomb",
+//   },
+//   {
+//     imageNameExt: "logicBomb.webp",
+//     artistName: "Logic Bomb",
+//   },
+//   {
+//     imageNameExt: "macAyres.jpg",
+//     artistName: "Mac Ayres",
+//   },
+//   {
+//     imageNameExt: "fridayNightPlans.jpg",
+//     artistName: "Friday Night Plans",
+//   },
+//   {
+//     imageNameExt: "fridayNightPlans.jpg",
+//     artistName: "Friday Night Plans",
+//   },
 
-  {
-    imageNameExt: "logicBomb.webp",
-    artistName: "Logic Bomb",
-  },
-  {
-    imageNameExt: "logicBomb.webp",
-    artistName: "Logic Bomb",
-  },
-];
+//   {
+//     imageNameExt: "logicBomb.webp",
+//     artistName: "Logic Bomb",
+//   },
+//   {
+//     imageNameExt: "logicBomb.webp",
+//     artistName: "Logic Bomb",
+//   },
+// ];
 
-export default function TopArtists() {
+export default function TopArtists({ artistsArr = [], filterBarArr = ["All Time", "Last 6 Months", "Last 4 Weeks"], imgStyle = [] }) {
   return (
     <div id="topArtistsContainer">
       <div id="topArtistsDiv">
@@ -46,7 +46,7 @@ export default function TopArtists() {
           </FilterBar>
         </div>
         <div id="topArtistsBody">
-          <ArtistsList artistsArr={artistsArr} itemType="col" listStyle={{ gap: "14.1px", rowGap: "22px" }} />
+          <ArtistsList artistsArr={artistsArr} itemType="col" listStyle={{ gap: "14.1px", rowGap: "22px" }} imgStyle={imgStyle} />
         </div>
       </div>
     </div>

@@ -5,11 +5,19 @@ import Image, { TYPES as IMAGETYPES } from "../../atoms/Image/Image";
 import "./styles.css";
 import { SPOTIFYWHITE } from "../../../styles/colors";
 
-export default function ProfileHeader({ username = "Dummyuser -PHO", profileStatusArr = [], style = {} }) {
+export default function ProfileHeader({
+  imageSrc = false,
+  username = "Dummyuser -PHO",
+  profileStatusArr = [],
+  onClick = () => {
+    console.error("No action sent! - PHO");
+  },
+  style = {},
+}) {
   return (
     <div className="profileHeader">
       <div id="profileHeaderImage">
-        <Image imageName="profileIcon.svg" isRoundedDiv isBorderedDiv isProfile type={IMAGETYPES.SMALLMINI} style={{ filter: `invert(100%)` }} />
+        <Image imageSrc={imageSrc} imageName="profileIcon.svg" isRounded type={!imageSrc ? IMAGETYPES.SMALLMINI : IMAGETYPES.MED} imgStyle={{ filter: !imageSrc ? `invert(100%)` : "", borderRadius: "50%", border: !imageSrc ? "" : "2px solid white" }} />
       </div>
       <div id="profileHeaderLabel">
         <AppLabel style={{ color: SPOTIFYWHITE, fontSize: "38.5px" }} type={LABELTYPES.TITLE} isBold>
@@ -20,7 +28,9 @@ export default function ProfileHeader({ username = "Dummyuser -PHO", profileStat
         <ProfileStatusBar profileStatusArr={profileStatusArr} />
       </div>
       <div id="profileHeaderButton">
-        <RoundedButton isInline>logout</RoundedButton>
+        <RoundedButton isInline onClick={onClick}>
+          logout
+        </RoundedButton>
       </div>
     </div>
   );

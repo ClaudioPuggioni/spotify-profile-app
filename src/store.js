@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import apiSlice from "./slices/apiSlice";
 import dataSlice from "./slices/dataSlice";
+import infoSlice from "./slices/infoSlice";
 
 const store = configureStore({
   reducer: {
     apiRedux: apiSlice,
     dataLocker: dataSlice,
+    infoApi: infoSlice,
   },
 });
 
