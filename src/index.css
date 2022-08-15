@@ -75,7 +75,6 @@ html {
     display: flex;
     justify-content: center !important;
   }
-  #topArtistsDiv,
   #topTracksDiv,
   #recentDiv {
     max-width: 86% !important;
@@ -88,5 +87,8 @@ html {
   }
   #headerProfile {
     margin-top: 37px !important;
+  }
+  #topArtistsDiv {
+    max-width: 99% !important;
   }
 }
