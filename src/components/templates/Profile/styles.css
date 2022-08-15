@@ -18,7 +18,8 @@
 #footerProfile {
   width: 100%;
   max-width: 1020px;
-  margin-top: 72px;
+  /* margin-top: 72px; */
+
   display: flex;
   gap: 40px;
 }

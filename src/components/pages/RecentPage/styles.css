@@ -1,0 +1,8 @@
+#recentPage {
+  position: fixed;
+  left: 83px;
+  width: 100%;
+  height: 100%;
+  max-width: calc(100vw - 83px);
+  overflow-y: scroll;
+}

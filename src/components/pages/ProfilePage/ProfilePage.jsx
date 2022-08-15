@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getDataThunk } from "../../../slices/infoSlice";
 import Profile from "../../templates/Profile/Profile";

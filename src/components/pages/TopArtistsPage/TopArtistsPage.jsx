@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles.css";
 import { useSelector } from "react-redux";
 import TopArtists from "../../templates/TopArtists/TopArtists";
 

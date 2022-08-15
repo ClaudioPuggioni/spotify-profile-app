@@ -1,6 +1,6 @@
 #topArtistsContainer {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -9,9 +9,10 @@
 
 #topArtistsDiv {
   width: 100%;
-  max-width: 64.5%;
-  margin-top: 69.5px;
-  margin-left: 82px;
+  max-width: 78%;
+  padding: 70px 0px;
+
+  /* margin-left: 82px; */
   display: flex;
   flex-direction: column;
 }
