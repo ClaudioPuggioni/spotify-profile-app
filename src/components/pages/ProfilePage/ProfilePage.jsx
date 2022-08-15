@@ -3,7 +3,7 @@ import "./styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import Profile from "../../templates/Profile/Profile";
 import { useNavigate } from "react-router-dom";
-import { setLoading } from "../../../slices/apiSlice";
+import { clearAPI } from "../../../slices/apiSlice";
 
 export default function ProfilePage() {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ export default function ProfilePage() {
         imgStyle={{ objectFit: "cover" }}
         onClick={() => {
           window.localStorage.clear();
-          dispatch(setLoading(false));
+          dispatch(clearAPI());
           goTo("/login");
         }}
       />

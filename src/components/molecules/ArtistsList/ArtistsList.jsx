@@ -6,8 +6,8 @@ export default function ArtistsList({ imageSrc = false, artistsArr = "artistsArr
   return (
     <div className="artistList" style={{ ...listStyle, flexDirection: itemType === "row" ? "column" : "row" }}>
       {artistsArr.length > 0
-        ? artistsArr.map((ele) => {
-            return <ArtistItem imageSrc={ele.imageSrc} itemType={itemType} imageNameExt={ele.imageNameExt} children={ele.artistName} labelStyle={labelStyle} imgStyle={imgStyle} />;
+        ? artistsArr.map((ele, idx) => {
+            return <ArtistItem key={`ArtistItem${idx}`} imageSrc={ele.imageSrc} itemType={itemType} imageNameExt={ele.imageNameExt} children={ele.artistName} labelStyle={labelStyle} imgStyle={imgStyle} />;
           })
         : artistsArr}
     </div>

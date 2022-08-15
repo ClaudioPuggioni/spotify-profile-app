@@ -16,8 +16,9 @@ export default function MainToolbar({ tabsArr = "tab array is missing - TTM", se
       <Image imageName="spotifyIcon.svg" type={IMAGE_TYPES.ALMOSTEXTRA_SMALL} imgStyle={{ filter: "invert(54%) sepia(58%) saturate(1865%) hue-rotate(99deg) brightness(95%) contrast(78%)" }} onClick={() => window.location.replace("https://open.spotify.com/", "_blank")} />
       <div className="toolbar">
         {tabsArr.length > 0
-          ? tabsArr.map((ele) => (
+          ? tabsArr.map((ele, idx) => (
               <ToolbarTab
+                key={`ToolbarTab${idx}`}
                 imageName={ele.fileNameExt}
                 text={ele.name}
                 selected={currTab === ele.linkName ? true : false}

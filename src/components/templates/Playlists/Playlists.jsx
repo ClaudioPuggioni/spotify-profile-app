@@ -12,8 +12,7 @@ export default function Playlists({ playlistsArr = [], imgStyle = [] }) {
             Your Playlists
           </AppLabel>
         </div>
-        {console.log(playlistsArr)}
-        <div id="playlistsBody">{playlistsArr.length > 0 ? playlistsArr.map((ele) => <PlaylistItem imageSrc={ele.imageSrc} imageNameExt={ele.imageNameExt} playlistTitle={ele.playlistTitle} trackCount={ele.trackCount} imgStyle={imgStyle} />) : null}</div>
+        <div id="playlistsBody">{playlistsArr.length > 0 ? playlistsArr.map((ele, idx) => <PlaylistItem key={`PlaylistItem${idx}`} imageSrc={ele.imageSrc} imageNameExt={ele.imageNameExt} playlistTitle={ele.playlistTitle} trackCount={ele.trackCount} imgStyle={imgStyle} />) : null}</div>
       </div>
     </div>
   );

@@ -6,8 +6,8 @@ export default function TracksList({ imageSrc = false, tracksArr = "tracksArr is
   return (
     <div className="tracksList" style={listStyle}>
       {tracksArr.length > 0
-        ? tracksArr.map((ele) => {
-            return <TrackItem imageSrc={ele.imageSrc} imageNameExt={ele.imageNameExt} trackName={ele.trackName} artistName={ele.artistName} albumName={ele.albumName} songLength={ele.songLength} itemStyle={itemStyle} imgStyle={imgStyle}></TrackItem>;
+        ? tracksArr.map((ele, idx) => {
+            return <TrackItem key={`TrackItem${idx}`} imageSrc={ele.imageSrc} imageNameExt={ele.imageNameExt} trackName={ele.trackName} artistName={ele.artistName} albumName={ele.albumName} songLength={ele.songLength} itemStyle={itemStyle} imgStyle={imgStyle}></TrackItem>;
           })
         : tracksArr}
     </div>

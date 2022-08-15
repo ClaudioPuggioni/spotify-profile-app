@@ -1,12 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  BASE64,
-  AUTH_CODE_KEY,
-  CLIENT_SECRET,
-  REDIRECT_URI,
-  REFRESH_TOKEN_KEY,
-  DEV_ID,
-} from "../utils/constants";
+import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
+import { BASE64, AUTH_CODE_KEY, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN_KEY, DEV_ID } from "../utils/constants";
 
 const apiSlice = createSlice({
   name: "apiRedux",
@@ -23,6 +16,11 @@ const apiSlice = createSlice({
       if (action.payload) {
         state.errorMessage = "";
       }
+    },
+    clearAPI: (state, action) => {
+      state.auth = window.localStorage.getItem(AUTH_CODE_KEY);
+      state.refreshToken = window.localStorage.getItem(REFRESH_TOKEN_KEY);
+      state.accessToken = null;
     },
   },
   extraReducers: (builder) => {
@@ -52,61 +50,53 @@ const apiSlice = createSlice({
   },
 });
 
-const testAuth = createAsyncThunk(
-  "apiRedux/testAuth",
-  async (code, thunkAPI) => {
-    if (!code) {
-      code = thunkAPI.getState().auth;
-    }
+const testAuth = createAsyncThunk("apiRedux/testAuth", async (code, thunkAPI) => {
+  if (!code) {
+    code = thunkAPI.getState().auth;
+  }
 
-    let response = await fetch("https://accounts.spotify.com/api/token", {
-      method: "POST",
-      body: new URLSearchParams({
-        grant_type: "authorization_code",
-        code,
-        redirect_uri: REDIRECT_URI,
-        client_id: DEV_ID,
-        client_secret: CLIENT_SECRET,
-      }).toString(),
-      headers: {
-        Authorization: `Basic ${BASE64}`,
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    });
-    let data = await response.json();
-    let repsonseObj = {
-      data,
+  let response = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
+    body: new URLSearchParams({
+      grant_type: "authorization_code",
       code,
-      status: response.status,
-      errorMessage: response.error !== undefined ? response.error.message : "",
-    };
-    return repsonseObj;
-  }
-);
+      redirect_uri: REDIRECT_URI,
+      client_id: DEV_ID,
+      client_secret: CLIENT_SECRET,
+    }).toString(),
+    headers: {
+      Authorization: `Basic ${BASE64}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+  let data = await response.json();
+  let repsonseObj = {
+    data,
+    code,
+    status: response.status,
+    errorMessage: response.error !== undefined ? response.error.message : "",
+  };
+  return repsonseObj;
+});
 
-const refreshAccessToken = createAsyncThunk(
-  "apiRedux/refreshAccessToken",
-  async (_, thunkAPI) => {
-    const refreshToken = thunkAPI.getState().refreshToken;
+const refreshAccessToken = createAsyncThunk("apiRedux/refreshAccessToken", async (_, thunkAPI) => {
+  const refreshToken = thunkAPI.getState().refreshToken;
 
-    let response = await fetch("https://accounts.spotify.com/api/token", {
-      method: "POST",
-      body: `grant_type=resfresh_token&refresh_token=${refreshToken}&client_id=${DEV_ID}`,
-      headers: {
-        Authorization: `Basic ${Buffer.from(
-          DEV_ID + ":" + CLIENT_SECRET
-        ).toString("base64")}`,
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    });
-    let data = await response.json();
-    console.log("Finished Testing!", data);
-    return null;
-  }
-);
+  let response = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
+    body: `grant_type=resfresh_token&refresh_token=${refreshToken}&client_id=${DEV_ID}`,
+    headers: {
+      Authorization: `Basic ${Buffer.from(DEV_ID + ":" + CLIENT_SECRET).toString("base64")}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+  let data = await response.json();
+  console.log("Finished Testing!", data);
+  return null;
+});
 
 export { testAuth, refreshAccessToken };
 
-export const { setAuth, setLoading } = apiSlice.actions;
+export const { setAuth, setLoading, clearAPI } = apiSlice.actions;
 
 export default apiSlice.reducer;

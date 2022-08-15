@@ -10,7 +10,7 @@ export default function FilterBar({ filterBarArr = [], selected = 0, children = 
       <AppLabel style={{ fontSize: "19px", color: SPOTIFYWHITE }} type isBold>
         {children}
       </AppLabel>
-      <div className="filterBarTabs">{filterBarArr.length > 0 ? filterBarArr.map((ele, idx) => <FilterTab selected={selected === idx ? true : false} text={ele} onClick={onClick} />) : null}</div>
+      <div className="filterBarTabs">{filterBarArr.length > 0 ? filterBarArr.map((ele, idx) => <FilterTab key={`FilterTab${idx}`} selected={selected === idx ? true : false} text={ele} onClick={onClick} />) : null}</div>
     </div>
   );
 }

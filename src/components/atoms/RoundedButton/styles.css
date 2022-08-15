@@ -8,6 +8,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.3px;
+  cursor: pointer;
 }
 .coloredBtn {
   padding: 17px 24px;
@@ -18,4 +19,5 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 3px;
+  cursor: pointer;
 }

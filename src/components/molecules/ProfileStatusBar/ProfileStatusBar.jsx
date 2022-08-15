@@ -7,7 +7,7 @@ export default function ProfileStatusBar({ profileStatusArr = "profileStatusArr 
     <div className="profileStatusBar">
       {profileStatusArr.length > 0
         ? profileStatusArr.map((ele, idx) => {
-            return <ProfileStatusItem numberTop={ele.number} textBottom={ele.label} />;
+            return <ProfileStatusItem key={`ProfileStatusItem${idx}`} numberTop={ele.number} textBottom={ele.label} />;
           })
         : profileStatusArr}
     </div>

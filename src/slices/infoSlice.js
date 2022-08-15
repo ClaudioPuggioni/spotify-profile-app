@@ -26,13 +26,9 @@ const infoSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getDataThunk.fulfilled, (state, action) => {
-        console.log("FULFILLED getDataThunk");
         state.loading = false;
         const [data, status, url] = action.payload;
-        console.log("builder data:", data);
-
         if (status === 200) {
-          console.log("status 200");
           function msConverter(ms) {
             let minutes = Math.floor(ms / 60000);
             let seconds = ((ms % 60000) / 1000).toFixed(0);
@@ -49,15 +45,12 @@ const infoSlice = createSlice({
             state.userAvatarSrc = data.images[0].url;
           }
           if (url === FOLLOWING_URL) {
-            // state.following = data.artists.total;
             state.profileStatusArr[1].number = data.artists.total;
           }
           if (url === PLAYLIST_COUNT_URL) {
-            // state.playlistArr = data.items;
             state.playlistArr = data.items.map((ele) => {
               return { imageSrc: ele.images[0].url, playlistTitle: ele.name, trackCount: ele.tracks.total };
             });
-            // state.playlists = data.total;
             state.profileStatusArr[2].number = data.total;
           }
           if (url === TOP_ARTISTS_URL_ALLTIME) {
@@ -91,33 +84,19 @@ const infoSlice = createSlice({
             });
           }
           if (url === RECENT_URL) {
-            console.log("RECENT:", data.items);
             state.recentPlayedList = data.items.map((ele) => {
               return { imageSrc: ele.track.album.images[0].url, trackName: ele.track.name, artistName: ele.track.artists[0].name, albumName: ele.track.album.name, songLength: msConverter(ele.track.duration_ms) };
             });
           }
         }
-        console.log("state is:", current(state));
-        // console.log("state.username:", state.username);
-        // console.log("state.followers:", state.followers);
-        // console.log("state.userAvatarSrc:", state.userAvatarSrc);
-        // console.log("state.following:", state.following);
-        // console.log("state.playlists:", state.playlists);
-        // console.log("state.playlistArr:", state.playlistArr);
-        // console.log("state.topArtistsList:", state.topArtistsList);
-        // console.log("state.topTracksList:", state.topTracksList);
-        // console.log("state.recentPlayedList:", state.recentPlayedList);
+        // console.log("state is:", current(state));
       })
       .addCase(getDataThunk.pending, (state, action) => {
-        console.log("PENDING getDataThunk");
         state.loading = true;
-        console.log("loading");
       })
       .addCase(getDataThunk.rejected, (state, action) => {
-        console.log("REJECTED getDataThunk");
         state.loading = false;
         state.errorMessage = action.error.message;
-        console.log("rejected");
       });
   },
 });
@@ -126,11 +105,9 @@ const getDataThunk = createAsyncThunk("infoApi/getDataThunk", async (url, api) =
   const access_token = api.getState().apiRedux.accessToken;
   let response = await fetch(url, {
     method: "GET",
-    // body: new URLSearchParams(body).toString(),
     headers: { Authorization: `Bearer ${access_token}`, "Content-Type": "application/json" },
   });
   let data = await response.json();
-  // console.log("claudio data arrived:", data);
   return [data, response.status, url];
 });
 
