@@ -9,6 +9,7 @@
   border-left: 4px solid transparent;
   width: 83px;
   text-transform: capitalize;
+  cursor: pointer;
 }
 .toolbar-tab-cont img {
   filter: invert(50%);
