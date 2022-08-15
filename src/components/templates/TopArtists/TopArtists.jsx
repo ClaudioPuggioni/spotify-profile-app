@@ -36,12 +36,12 @@ import "./styles.css";
 //   },
 // ];
 
-export default function TopArtists({ artistsArr = [], filterBarArr = ["All Time", "Last 6 Months", "Last 4 Weeks"], imgStyle = [] }) {
+export default function TopArtists({ artistsArr = [], filterBarArr = ["All Time", "Last 6 Months", "Last 4 Weeks"], onClick = () => {}, selected = 0, imgStyle = [] }) {
   return (
     <div id="topArtistsContainer">
       <div id="topArtistsDiv">
         <div id="topArtistsHeader">
-          <FilterBar filterBarArr={filterBarArr} selected={0}>
+          <FilterBar filterBarArr={filterBarArr} selected={selected} onClick={onClick}>
             Top Artists
           </FilterBar>
         </div>

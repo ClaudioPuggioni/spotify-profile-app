@@ -8,33 +8,33 @@ export const TYPES = {
   PAR: 4,
 };
 
-export default function AppLabel({ style = {}, children = "No Text here!", type = TYPES.TITLE, isBold = false }) {
+export default function AppLabel({ style = {}, children = "No Text here!", type = TYPES.TITLE, isBold = false, onClick = () => {} }) {
   let result = {};
   switch (type) {
     case TYPES.TITLE:
       result = (
-        <h1 style={{ ...style }} className={isBold ? "bold-text" : ""}>
+        <h1 style={{ ...style }} className={isBold ? "bold-text" : ""} onClick={onClick}>
           {children}
         </h1>
       );
       break;
     case TYPES.SUB_TITLE:
       result = (
-        <h2 style={{ ...style }} className={isBold ? "bold-text" : ""}>
+        <h2 style={{ ...style }} className={isBold ? "bold-text" : ""} onClick={onClick}>
           {children}
         </h2>
       );
       break;
     case TYPES.SUB_SUB_TITLE:
       result = (
-        <h3 style={{ ...style }} className={isBold ? "bold-text" : ""}>
+        <h3 style={{ ...style }} className={isBold ? "bold-text" : ""} onClick={onClick}>
           {children}
         </h3>
       );
       break;
     default:
       result = (
-        <p style={{ ...style }} className={isBold ? "bold-text" : ""}>
+        <p style={{ ...style }} className={isBold ? "bold-text" : ""} onClick={onClick}>
           {children}
         </p>
       );

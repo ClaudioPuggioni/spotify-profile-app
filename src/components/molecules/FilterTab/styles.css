@@ -4,6 +4,7 @@
   padding-bottom: 1.4px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .selectedFilterTab {

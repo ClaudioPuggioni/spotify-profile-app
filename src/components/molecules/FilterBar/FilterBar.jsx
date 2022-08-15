@@ -4,13 +4,13 @@ import AppLabel from "../../atoms/AppLabel/AppLabel";
 import FilterTab from "../FilterTab/FilterTab";
 import "./styles.css";
 
-export default function FilterBar({ filterBarArr = [], selected = 0, children = "no text here - FBM" }) {
+export default function FilterBar({ filterBarArr = [], selected = 0, children = "no text here - FBM", onClick = () => {} }) {
   return (
     <div className="filterBarContainer">
       <AppLabel style={{ fontSize: "19px", color: SPOTIFYWHITE }} type isBold>
         {children}
       </AppLabel>
-      <div className="filterBarTabs">{filterBarArr.length > 0 ? filterBarArr.map((ele, idx) => <FilterTab selected={selected === idx ? true : false} text={ele} />) : null}</div>
+      <div className="filterBarTabs">{filterBarArr.length > 0 ? filterBarArr.map((ele, idx) => <FilterTab selected={selected === idx ? true : false} text={ele} onClick={onClick} />) : null}</div>
     </div>
   );
 }
