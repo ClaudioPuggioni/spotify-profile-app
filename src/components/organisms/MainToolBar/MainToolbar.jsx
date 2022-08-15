@@ -7,13 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { setTab } from "../../../slices/dataSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function MainToolbar({ tabsArr = "tab array is missing - TTM", selected = "", fixed = false }) {
+export default function MainToolbar({ tabsArr = "tab array is missing - TTM", selected = "", fixed = false, row = false }) {
   const Navigate = useNavigate();
   const dispatch = useDispatch();
   const { currTab } = useSelector((state) => state.dataLocker);
   return (
     <div className="fullPaneToolbar" style={{ backgroundColor: SPOTIFYBLACK, position: fixed ? "fixed" : "" }}>
-      <Image imageName="spotifyIcon.svg" type={IMAGE_TYPES.ALMOSTEXTRA_SMALL} imgStyle={{ filter: "invert(54%) sepia(58%) saturate(1865%) hue-rotate(99deg) brightness(95%) contrast(78%)" }} onClick={() => window.location.replace("https://open.spotify.com/", "_blank")} />
+      {!row ? <Image imageName="spotifyIcon.svg" type={IMAGE_TYPES.ALMOSTEXTRA_SMALL} imgStyle={{ filter: "invert(54%) sepia(58%) saturate(1865%) hue-rotate(99deg) brightness(95%) contrast(78%)" }} onClick={() => window.location.replace("https://open.spotify.com/", "_blank")} /> : null}
       <div className="toolbar">
         {tabsArr.length > 0
           ? tabsArr.map((ele, idx) => (
@@ -21,6 +21,7 @@ export default function MainToolbar({ tabsArr = "tab array is missing - TTM", se
                 key={`ToolbarTab${idx}`}
                 imageName={ele.fileNameExt}
                 text={ele.name}
+                row={row}
                 selected={currTab === ele.linkName ? true : false}
                 onClick={() => {
                   Navigate(`/${ele.linkName}`);
@@ -30,7 +31,7 @@ export default function MainToolbar({ tabsArr = "tab array is missing - TTM", se
             ))
           : tabsArr}
       </div>
-      <Image imageName="githubIcon.svg" type={IMAGE_TYPES.EXTRAEXTRA_SMALL} imgStyle={{ filter: "invert(54%)" }} onClick={() => window.location.replace("https://github.com/", "_blank")} />
+      {!row ? <Image imageName="githubIcon.svg" type={IMAGE_TYPES.EXTRAEXTRA_SMALL} imgStyle={{ filter: "invert(54%)" }} onClick={() => window.location.replace("https://github.com/", "_blank")} /> : null}
     </div>
   );
 }

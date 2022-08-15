@@ -2,46 +2,12 @@ import ArtistsList from "../../molecules/ArtistsList/ArtistsList";
 import FilterBar from "../../molecules/FilterBar/FilterBar";
 import "./styles.css";
 
-// const filterBarArr = ["All Time", "Last 6 Months", "Last 4 Weeks"];
-
-// const artistsArr = [
-//   {
-//     imageNameExt: "logicBomb.webp",
-//     artistName: "Logic Bomb",
-//   },
-//   {
-//     imageNameExt: "logicBomb.webp",
-//     artistName: "Logic Bomb",
-//   },
-//   {
-//     imageNameExt: "macAyres.jpg",
-//     artistName: "Mac Ayres",
-//   },
-//   {
-//     imageNameExt: "fridayNightPlans.jpg",
-//     artistName: "Friday Night Plans",
-//   },
-//   {
-//     imageNameExt: "fridayNightPlans.jpg",
-//     artistName: "Friday Night Plans",
-//   },
-
-//   {
-//     imageNameExt: "logicBomb.webp",
-//     artistName: "Logic Bomb",
-//   },
-//   {
-//     imageNameExt: "logicBomb.webp",
-//     artistName: "Logic Bomb",
-//   },
-// ];
-
-export default function TopArtists({ artistsArr = [], filterBarArr = ["All Time", "Last 6 Months", "Last 4 Weeks"], onClick = () => {}, selected = 0, imgStyle = [] }) {
+export default function TopArtists({ artistsArr = [], filterBarArr = ["All Time", "Last 6 Months", "Last 4 Weeks"], col = false, onClick = () => {}, selected = 0, imgStyle = [] }) {
   return (
     <div id="topArtistsContainer">
       <div id="topArtistsDiv">
         <div id="topArtistsHeader">
-          <FilterBar filterBarArr={filterBarArr} selected={selected} onClick={onClick}>
+          <FilterBar filterBarArr={filterBarArr} selected={selected} col={col} onClick={onClick}>
             Top Artists
           </FilterBar>
         </div>

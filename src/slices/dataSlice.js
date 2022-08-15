@@ -10,14 +10,17 @@ const toolbarData = [
 
 const dataSlice = createSlice({
   name: "dataLocker",
-  initialState: { toolbarInputs: toolbarData, currTab: "profile" },
+  initialState: { toolbarInputs: toolbarData, currTab: "profile", isMobile: false },
   reducers: {
     setTab: (state, action) => {
       state.currTab = action.payload;
     },
+    setMobile: (state, action) => {
+      state.isMobile = action.payload;
+    },
   },
 });
 
-export const { setTab } = dataSlice.actions;
+export const { setTab, setMobile } = dataSlice.actions;
 
 export default dataSlice.reducer;

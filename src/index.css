@@ -17,3 +17,76 @@ body,
 html {
   background-color: #181818;
 }
+
+@media screen and (max-width: 610px) {
+  .fullPaneToolbar {
+    width: 100% !important;
+    height: 83px !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    left: auto;
+    bottom: 0;
+  }
+  .toolbar {
+    flex-direction: row !important;
+  }
+  .toolbar-tab-cont {
+    height: 83px !important;
+  }
+  .artistList {
+    justify-content: center !important;
+  }
+  #profilePage,
+  #topArtistsPage,
+  #topTracksPage,
+  #recentPage,
+  #playlistsPage {
+    height: calc(100vh - 83px) !important;
+    left: 0 !important;
+    max-width: none !important;
+    bottom: 83px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  #footerProfile {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #playlistsContainer,
+  #playlistDiv,
+  #playlistsBody {
+    flex-wrap: wrap;
+    padding: 0 !important;
+    justify-content: center;
+    overflow-x: hidden !important;
+  }
+  #playlistDiv {
+    position: static;
+    margin: 0 !important;
+    padding: 70px 0px !important;
+  }
+  #playlistsContainer {
+    height: 100% !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+  }
+  #playlistsHeader,
+  #recentHeader {
+    display: flex;
+    justify-content: center !important;
+  }
+  #topArtistsDiv,
+  #topTracksDiv,
+  #recentDiv {
+    max-width: 86% !important;
+  }
+  #topArtistsDiv,
+  #topTracksDiv,
+  #recentDiv,
+  #playlistDiv {
+    padding: 37px 0px !important;
+  }
+  #headerProfile {
+    margin-top: 37px !important;
+  }
+}

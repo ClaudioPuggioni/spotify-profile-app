@@ -9,3 +9,10 @@
   align-items: flex-end;
   gap: 16px;
 }
+
+.filterBarCol {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 37px;
+}

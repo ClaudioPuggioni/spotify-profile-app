@@ -7,12 +7,13 @@ import { SECONDARY, PRIMARY, SPOTIFYBLACK, SPOTIFYWHITE, GREY } from "../../../s
 export default function ToolbarTab({
   selected = false,
   imageName = "",
+  row = false,
   text = "No text here - TTM",
   onClick = () => {
     console.log("Button is doing nothing here -TTM");
   },
 }) {
-  const selectedStr = selected ? "selectedToolbarTab" : "";
+  const selectedStr = selected && !row ? "selectedToolbarTab" : selected && row ? "selectedToolbarTabRow" : "";
   return (
     <div style={selected ? { backgroundColor: PRIMARY, borderColor: SECONDARY } : { backgroundColor: SPOTIFYBLACK }} className={`toolbar-tab-cont ${selectedStr}`} onClick={onClick}>
       <Image imageName={imageName} type={IMAGE_TYPES.ALMOSTTINY} />

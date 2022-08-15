@@ -18,7 +18,7 @@ export default function HeaderButtonGroup({
 }) {
   return (
     <div className={orient === "row" ? "header-button-cont row" : "header-button-cont col"}>
-      <AppLabel style={{ ...labelStyle, flex: 1 }} type={type} isBold={isBold}>
+      <AppLabel style={{ ...labelStyle }} type={type} isBold={isBold}>
         {headerText}
       </AppLabel>
       <RoundedButton isInline={isButtonInline} onClick={onClick} style={buttonStyle}>

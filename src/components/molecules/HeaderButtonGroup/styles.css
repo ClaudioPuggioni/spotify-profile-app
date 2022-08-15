@@ -1,10 +1,10 @@
 .header-button-cont {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 10px;
   gap: 10px;
-  min-width: 400px;
+  min-width: 280px;
 }
 
 .row {

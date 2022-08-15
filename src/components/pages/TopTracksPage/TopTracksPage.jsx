@@ -6,12 +6,14 @@ import { switchFilter } from "../../../slices/infoSlice";
 
 export default function TopTracksPage() {
   const { topTracksList_ALL, topTracksList_6M, topTracksList_4W, tracksSelect } = useSelector((state) => state.infoApi);
+  const { isMobile } = useSelector((state) => state.dataLocker);
   const dispatch = useDispatch();
   return (
     <div id="topTracksPage">
       <TopTracks
         tracksArr={tracksSelect === 0 ? topTracksList_ALL : tracksSelect === 1 ? topTracksList_6M : topTracksList_4W}
         imgStyle={{ objectFit: "cover" }}
+        col={isMobile ? true : false}
         selected={tracksSelect}
         onClick={(e) => {
           dispatch(switchFilter(["tracks", e.target.innerText]));
