@@ -51,6 +51,8 @@ html {
   #footerProfile {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 5px !important;
+    margin-top: 15px !important;
   }
   #playlistsContainer,
   #playlistDiv,
@@ -90,5 +92,8 @@ html {
   }
   #topArtistsDiv {
     max-width: 99% !important;
+  }
+  #footerProfile #topTracksDiv {
+    max-width: 95% !important;
   }
 }
