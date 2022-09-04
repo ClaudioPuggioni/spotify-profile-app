@@ -46,6 +46,14 @@ const apiSlice = createSlice({
       .addCase(testAuth.rejected, (state, action) => {
         state.loading = false;
         state.errorMessage = action.error.message;
+        if (action.status === 401) {
+          console.log("entered!");
+          state.auth = code;
+          state.accessToken = data.access_token;
+          state.refreshToken = data.refresh_token;
+          window.localStorage.setItem(AUTH_CODE_KEY, code);
+          window.localStorage.setItem(REFRESH_TOKEN_KEY, data.refresh_token);
+        }
       });
   },
 });
