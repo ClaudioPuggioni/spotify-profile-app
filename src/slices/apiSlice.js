@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
 import { BASE64, AUTH_CODE_KEY, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN_KEY, DEV_ID } from "../utils/constants";
 
 const testAuth = createAsyncThunk("apiRedux/testAuth", async (code, thunkAPI) => {
@@ -10,7 +10,7 @@ const testAuth = createAsyncThunk("apiRedux/testAuth", async (code, thunkAPI) =>
     method: "POST",
     body: new URLSearchParams({
       grant_type: "authorization_code",
-      code,
+      code: code,
       redirect_uri: REDIRECT_URI,
       client_id: DEV_ID,
       client_secret: CLIENT_SECRET,
@@ -22,8 +22,8 @@ const testAuth = createAsyncThunk("apiRedux/testAuth", async (code, thunkAPI) =>
   });
   let data = await response.json();
   let repsonseObj = {
-    data,
-    code,
+    data: data,
+    code: code,
     status: response.status,
     errorMessage: response.error !== undefined ? response.error.message : "",
   };
@@ -90,7 +90,7 @@ const apiSlice = createSlice({
       })
       .addCase(testAuth.rejected, (state, action) => {
         state.loading = false;
-        const { data, code } = action.payload;
+        const { data, code, status, errorMessage } = action.payload;
         state.errorMessage = action.error.message;
         if (action.status === 401) {
           console.log("entered!");
