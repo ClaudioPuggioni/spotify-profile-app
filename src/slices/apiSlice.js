@@ -1,5 +1,50 @@
-import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { BASE64, AUTH_CODE_KEY, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN_KEY, DEV_ID } from "../utils/constants";
+
+const testAuth = createAsyncThunk("apiRedux/testAuth", async (code, thunkAPI) => {
+  if (!code) {
+    code = thunkAPI.getState().auth;
+  }
+
+  let response = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
+    body: new URLSearchParams({
+      grant_type: "authorization_code",
+      code,
+      redirect_uri: REDIRECT_URI,
+      client_id: DEV_ID,
+      client_secret: CLIENT_SECRET,
+    }).toString(),
+    headers: {
+      Authorization: `Basic ${BASE64}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+  let data = await response.json();
+  let repsonseObj = {
+    data,
+    code,
+    status: response.status,
+    errorMessage: response.error !== undefined ? response.error.message : "",
+  };
+  return repsonseObj;
+});
+
+const refreshAccessToken = createAsyncThunk("apiRedux/refreshAccessToken", async (_, thunkAPI) => {
+  const refreshToken = thunkAPI.getState().refreshToken;
+
+  let response = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
+    body: `grant_type=resfresh_token&refresh_token=${refreshToken}&client_id=${DEV_ID}`,
+    headers: {
+      Authorization: `Basic ${Buffer.from(DEV_ID + ":" + CLIENT_SECRET).toString("base64")}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+  let data = await response.json();
+  console.log("Finished Testing!", data);
+  return null;
+});
 
 const apiSlice = createSlice({
   name: "apiRedux",
@@ -45,6 +90,7 @@ const apiSlice = createSlice({
       })
       .addCase(testAuth.rejected, (state, action) => {
         state.loading = false;
+        const { data, code } = action.payload;
         state.errorMessage = action.error.message;
         if (action.status === 401) {
           console.log("entered!");
@@ -56,51 +102,6 @@ const apiSlice = createSlice({
         }
       });
   },
-});
-
-const testAuth = createAsyncThunk("apiRedux/testAuth", async (code, thunkAPI) => {
-  if (!code) {
-    code = thunkAPI.getState().auth;
-  }
-
-  let response = await fetch("https://accounts.spotify.com/api/token", {
-    method: "POST",
-    body: new URLSearchParams({
-      grant_type: "authorization_code",
-      code,
-      redirect_uri: REDIRECT_URI,
-      client_id: DEV_ID,
-      client_secret: CLIENT_SECRET,
-    }).toString(),
-    headers: {
-      Authorization: `Basic ${BASE64}`,
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  });
-  let data = await response.json();
-  let repsonseObj = {
-    data,
-    code,
-    status: response.status,
-    errorMessage: response.error !== undefined ? response.error.message : "",
-  };
-  return repsonseObj;
-});
-
-const refreshAccessToken = createAsyncThunk("apiRedux/refreshAccessToken", async (_, thunkAPI) => {
-  const refreshToken = thunkAPI.getState().refreshToken;
-
-  let response = await fetch("https://accounts.spotify.com/api/token", {
-    method: "POST",
-    body: `grant_type=resfresh_token&refresh_token=${refreshToken}&client_id=${DEV_ID}`,
-    headers: {
-      Authorization: `Basic ${Buffer.from(DEV_ID + ":" + CLIENT_SECRET).toString("base64")}`,
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  });
-  let data = await response.json();
-  console.log("Finished Testing!", data);
-  return null;
 });
 
 export { testAuth, refreshAccessToken };
