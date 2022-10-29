@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { BASE64, AUTH_CODE_KEY, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN_KEY, DEV_ID } from "../utils/constants";
 
 const testAuth = createAsyncThunk("apiRedux/testAuth", async (code, thunkAPI) => {
@@ -90,7 +90,7 @@ const apiSlice = createSlice({
       })
       .addCase(testAuth.rejected, (state, action) => {
         state.loading = false;
-        const { data, code, status, errorMessage } = action.payload;
+        const { data, code } = action.payload;
         state.errorMessage = action.error.message;
         if (action.status === 401) {
           console.log("entered!");

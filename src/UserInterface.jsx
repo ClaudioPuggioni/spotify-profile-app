@@ -15,6 +15,7 @@ function UserInterface() {
 
   useEffect(() => {
     dispatch(setMobile(isMobile));
+    // eslint-disable-next-line
   }, [isMobile]);
 
   return (

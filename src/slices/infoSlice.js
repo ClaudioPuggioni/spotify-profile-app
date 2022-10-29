@@ -1,9 +1,38 @@
-import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
-import { FOLLOWER_USER_URL, FOLLOWING_URL, PLAYLIST_COUNT_URL, RECENT_URL, AUTH_CODE_KEY, TOP_ARTISTS_URL_ALLTIME, TOP_ARTISTS_URL_6MONTHS, TOP_ARTISTS_URL_4WEEKS, TOP_TRACKS_URL_4WEEKS, TOP_TRACKS_URL_6MONTHS, TOP_TRACKS_URL_ALLTIME } from "../utils/constants";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  FOLLOWER_USER_URL,
+  FOLLOWING_URL,
+  PLAYLIST_COUNT_URL,
+  RECENT_URL,
+  TOP_ARTISTS_URL_ALLTIME,
+  TOP_ARTISTS_URL_6MONTHS,
+  TOP_ARTISTS_URL_4WEEKS,
+  TOP_TRACKS_URL_4WEEKS,
+  TOP_TRACKS_URL_6MONTHS,
+  TOP_TRACKS_URL_ALLTIME,
+} from "../utils/constants";
 
 const infoSlice = createSlice({
   name: "infoApi",
-  initialState: { loading: false, username: false, profileStatusArr: false, followers: 0, userAvatarSrc: false, following: 0, playlists: 0, playlistArr: false, topArtistsList_ALL: false, topArtistsList_6M: false, topArtistsList_4W: false, topTracksList_ALL: false, topTracksList_6M: false, topTracksList_4W: false, recentPlayedList: false, artistsSelect: 0, tracksSelect: 0 },
+  initialState: {
+    loading: false,
+    username: false,
+    profileStatusArr: false,
+    followers: 0,
+    userAvatarSrc: false,
+    following: 0,
+    playlists: 0,
+    playlistArr: false,
+    topArtistsList_ALL: false,
+    topArtistsList_6M: false,
+    topArtistsList_4W: false,
+    topTracksList_ALL: false,
+    topTracksList_6M: false,
+    topTracksList_4W: false,
+    recentPlayedList: false,
+    artistsSelect: 0,
+    tracksSelect: 0,
+  },
   reducers: {
     switchFilter: (state, action) => {
       const [type, selection] = action.payload;
@@ -70,22 +99,46 @@ const infoSlice = createSlice({
           }
           if (url === TOP_TRACKS_URL_ALLTIME) {
             state.topTracksList_ALL = data.items.map((ele) => {
-              return { imageSrc: ele.album.images[0].url, trackName: ele.name, artistName: ele.artists[0].name, albumName: ele.album.name, songLength: msConverter(ele.duration_ms) };
+              return {
+                imageSrc: ele.album.images[0].url,
+                trackName: ele.name,
+                artistName: ele.artists[0].name,
+                albumName: ele.album.name,
+                songLength: msConverter(ele.duration_ms),
+              };
             });
           }
           if (url === TOP_TRACKS_URL_6MONTHS) {
             state.topTracksList_6M = data.items.map((ele) => {
-              return { imageSrc: ele.album.images[0].url, trackName: ele.name, artistName: ele.artists[0].name, albumName: ele.album.name, songLength: msConverter(ele.duration_ms) };
+              return {
+                imageSrc: ele.album.images[0].url,
+                trackName: ele.name,
+                artistName: ele.artists[0].name,
+                albumName: ele.album.name,
+                songLength: msConverter(ele.duration_ms),
+              };
             });
           }
           if (url === TOP_TRACKS_URL_4WEEKS) {
             state.topTracksList_4W = data.items.map((ele) => {
-              return { imageSrc: ele.album.images[0].url, trackName: ele.name, artistName: ele.artists[0].name, albumName: ele.album.name, songLength: msConverter(ele.duration_ms) };
+              return {
+                imageSrc: ele.album.images[0].url,
+                trackName: ele.name,
+                artistName: ele.artists[0].name,
+                albumName: ele.album.name,
+                songLength: msConverter(ele.duration_ms),
+              };
             });
           }
           if (url === RECENT_URL) {
             state.recentPlayedList = data.items.map((ele) => {
-              return { imageSrc: ele.track.album.images[0].url, trackName: ele.track.name, artistName: ele.track.artists[0].name, albumName: ele.track.album.name, songLength: msConverter(ele.track.duration_ms) };
+              return {
+                imageSrc: ele.track.album.images[0].url,
+                trackName: ele.track.name,
+                artistName: ele.track.artists[0].name,
+                albumName: ele.track.album.name,
+                songLength: msConverter(ele.track.duration_ms),
+              };
             });
           }
         }
