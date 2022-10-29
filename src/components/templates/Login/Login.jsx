@@ -5,12 +5,10 @@ import { SPOTIFYWHITE } from "../../../styles/colors";
 import { getAuthLink } from "../../../utils/constants";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { setLoading } from "../../../slices/apiSlice";
+import { useSelector } from "react-redux";
 
 export default function Login() {
   const { auth } = useSelector((state) => state.apiRedux);
-  const dispatch = useDispatch();
   const navigator = useNavigate();
   useEffect(() => {
     if (auth) {
