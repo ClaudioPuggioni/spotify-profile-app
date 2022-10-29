@@ -3,7 +3,7 @@ import { Buffer } from "buffer";
 
 export const DEV_ID = "6d9d2ada4edc4edbbaf9123d39707310";
 export const CLIENT_SECRET = "25c9a61a43954e85a98ca6613c4dedae";
-export const REDIRECT_URI = "http://localhost:3000/";
+export const REDIRECT_URI = "https://spotify-profile-view.netlify.app/";
 export const BASE64 = Buffer.from(DEV_ID + ":" + CLIENT_SECRET).toString("base64");
 
 export const getAuthLink = () => {
